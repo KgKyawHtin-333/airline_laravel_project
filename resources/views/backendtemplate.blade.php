@@ -94,7 +94,7 @@
         </div>
       </div>
       <ul class="app-menu">
-        <li><a class="app-menu__item" href="dashboard.html"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+        <li><a class="app-menu__item" href="{{route('route.index')}}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Route</span></a></li>
        
         <li><a class="app-menu__item" href="{{route('airline.index')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label"> Airlines </span></a></li>
 

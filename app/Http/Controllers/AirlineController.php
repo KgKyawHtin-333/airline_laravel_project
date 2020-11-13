@@ -14,7 +14,8 @@ class AirlineController extends Controller
      */
     public function index()
     {
-        return view('airline.index');
+        $airlines=Airline::all();
+        return view('airline.index',compact('airlines'));
     }
 
     /**
