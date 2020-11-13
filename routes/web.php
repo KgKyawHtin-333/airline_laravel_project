@@ -16,3 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('airline', 'AirlineController');
+
+Route::resource('route', 'RouteController');
+
+Route::resource('time', 'TimeController');
+
+Route::resource('class_flight', 'ClassFlightController');
+
+Route::resource('flight', 'FlightController');
+
+Route::resource('seat', 'SeatController');
+
+Route::resource('schedule', 'ScheduleController');
+
+Route::resource('booking', 'BookingController');
+
+Route::resource('booking_seat', 'BookingSeatController');
+
