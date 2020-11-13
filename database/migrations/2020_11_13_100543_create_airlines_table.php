@@ -17,7 +17,7 @@ class CreateAirlinesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
-            $table->integer('phone_no');
+            $table->string('phone_no');
             $table->text('photo');
             $table->timestamps();
         });
