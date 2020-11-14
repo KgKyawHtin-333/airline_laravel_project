@@ -14,7 +14,8 @@ class ClassFlightController extends Controller
      */
     public function index()
     {
-        //
+        $classFlights=ClassFlight::all();
+        return view('class_flight.index',compact('classFlights'));
     }
 
     /**

@@ -16,28 +16,28 @@
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
-          <h2 class="d-inline-block"> Airline List </h2>
+          <h2 class="d-inline-block"> Route List </h2>
           <a href="" class="btn btn-info float-right">Add New</a>
           <table class="table mt-4 dataTable">
             <thead>
               <tr>
                 <th>No</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Phone no</th>
-                <th>Photo</th>
+                <th>From_city</th>
+                <th>To_city</th>
+                <th>Price</th>
+               
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
             @php $i=1;@endphp
-             @foreach($airlines as $airline)
+             @foreach($routes as $route)
               <tr>
                 <td> {{$i++}}  </td>
-                <td>{{$airline->name}}</td>
-                <td> {{$airline->address}}   </td>
-                <td> {{$airline->phone_no}}   </td>
-                <td>  {{$airline->photo}}  </td>
+                <td>{{$route->From_city}}</td>
+                <td> {{$route->To_city}}   </td>
+                <td> {{$route->price}}   </td>
+                
                 <td> 
                   <a href="" class="btn btn-success">Edit</a>
                   <a href="" class="btn btn-info">Show</a>

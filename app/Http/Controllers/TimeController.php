@@ -14,7 +14,8 @@ class TimeController extends Controller
      */
     public function index()
     {
-        //
+        $times=Time::all();
+        return view('time.index',compact('times'));
     }
 
     /**

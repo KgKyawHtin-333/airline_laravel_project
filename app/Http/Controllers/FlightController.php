@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Flight;
 use Illuminate\Http\Request;
+use App\Airline;
 
 class FlightController extends Controller
 {
@@ -14,7 +15,9 @@ class FlightController extends Controller
      */
     public function index()
     {
-        //
+        $flights=Flight::all();
+        $airlines=Airline::all();
+        return view('flight.index',compact('flights','airlines'));
     }
 
     /**
