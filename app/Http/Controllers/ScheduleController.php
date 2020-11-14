@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Schedule;
+use App\Route;
+use App\Flight;
+use App\Time;
 use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
@@ -14,7 +17,11 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        //
+        $schedules=Schedule::all();
+        $routes=Route::all();
+        $flights=Flight::all();
+        $times=Time::all();
+        return view('schedule.index',compact('schedules','routes','flights','times'));
     }
 
     /**

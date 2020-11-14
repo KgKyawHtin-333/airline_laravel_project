@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Seat;
+use App\Flight;
+use App\ClassFlight;
+use App\Airline;
 use Illuminate\Http\Request;
 
 class SeatController extends Controller
@@ -14,7 +17,11 @@ class SeatController extends Controller
      */
     public function index()
     {
-        //
+        $seats=Seat::all();
+        $flights=Flight::all();
+        $classFlights=ClassFlight::all();
+        $airlines=Airline::all();
+        return view('seat.index',compact('seats','flights','classFlights','airlines'));
     }
 
     /**

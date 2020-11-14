@@ -27,7 +27,8 @@ class FlightController extends Controller
      */
     public function create()
     {
-        //
+        $airlines=Airline::all();
+        return view('flight.create',compact('airlines'));
     }
 
     /**
@@ -38,7 +39,24 @@ class FlightController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // dd($request);
+
+         $request->validate([
+            "name"=>"required",
+            "total_seat"=>"required",
+            "airline"=>"required"
+        ]);
+
+
+          $flight= Flight::create(['name' => $request->name,
+                                 'total_seats'=>$request->total_seat,
+                                  'airline_id' => $request->airline
+          ]);
+
+
+         $flight->save();
+         return Redirect()->route('flight.index');
+
     }
 
     /**
@@ -83,6 +101,8 @@ class FlightController extends Controller
      */
     public function destroy(Flight $flight)
     {
-        //
+        $flight->delete();
+
+        return back();
     }
 }
