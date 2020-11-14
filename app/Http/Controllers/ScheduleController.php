@@ -7,6 +7,7 @@ use App\Route;
 use App\Flight;
 use App\Time;
 use App\Airline;
+use App\City;
 use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
@@ -37,7 +38,8 @@ class ScheduleController extends Controller
         $airlines=Airline::all();
         $flights=Flight::all();
         $times=Time::all();
-        return view('schedule.create',compact('schedules','routes','airlines','flights','times'));
+        $cities=City::all();
+        return view('schedule.create',compact('schedules','routes','airlines','flights','times','cities'));
     }
 
     /**
@@ -48,14 +50,14 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         $request->validate([
-            "From_city"=>"required",
-            "To_city"=>"required",
+            "route"=>"required",
             "flight_name"=>"required",
             "time" =>"required"
         ]);
 
-            $schedule= Schedule::create(['route_id' => $request->From_city, $request->To_city,
+            $schedule= Schedule::create(['route_id' => $request->route, 
                                         'flight_id'=>$request->flight_name,
                                         'time_id' => $request->time
         ]);
@@ -83,7 +85,10 @@ class ScheduleController extends Controller
      */
     public function edit(Schedule $schedule)
     {
-        //
+        $routes=Route::all();
+        $flights=Flight::all();
+        $times=Time::all();
+        return view('schedule.edit',compact('schedule','routes','flights','times'));
     }
 
     /**
@@ -95,7 +100,17 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, Schedule $schedule)
     {
-        //
+        $request->validate([
+            "route"=>"required",
+            "flight_name"=>"required",
+            "time" =>"required"
+        ]);
+        $schedule->route_id=$request->route;
+        $schedule->flight_id=$request->flight_name;
+        $schedule->time_id=$request->time;
+        $schedule->save();
+ 
+         return redirect()->route('schedule.index');
     }
 
     /**
@@ -106,6 +121,7 @@ class ScheduleController extends Controller
      */
     public function destroy(Schedule $schedule)
     {
-        //
+        $schedule->delete();
+        return back();
     }
 }

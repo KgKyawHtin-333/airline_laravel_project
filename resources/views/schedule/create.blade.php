@@ -22,23 +22,15 @@
         <form action="{{route('schedule.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
                 <div class="form-group row">
-                        <label for="from_city">From_city</label>
-                        <select id="From_city" class="form-control" name="From_city" value="From_city">
+                        <label for="from_city">Route Name</label>
+                        <select id="From_city" class="form-control" name="route" value="route">
                        @foreach($routes as $route)
-                            <option value="{{$route->id}}">{{$route->From_city}}</option>
+                            <option value="{{$route->id}}">From {{$route->fromCity->name}} To {{$route->toCity->name}}</option>
                         @endforeach 
 
                         </select>
                  </div>
-                 <div class="form-group row">
-                        <label for="To_city"> To_city</label>
-                        <select id="To_city" class="form-control" name="To_city" value="To_city">
-                       @foreach($routes as $route)
-                            <option value="{{$route->id}}">{{$route->To_city}}</option>
-                        @endforeach 
-
-                        </select>
-                 </div>
+                
                 
                 <div class="form-group row">
                     <label for="flight_name">Flight Name</label>

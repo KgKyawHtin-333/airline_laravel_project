@@ -22,8 +22,7 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>From_City</th>
-                <th>To_City</th>
+                <th>Route Name</th>
                 <th>Flight Name</th>
                 <th>Time Name</th>
                 <th>Actions</th>
@@ -34,14 +33,20 @@
              @foreach($schedules as $schedule)
               <tr>
                 <td> {{$i++}}  </td>
-                <td>{{$schedule->route->From_city}}</td>
-                <td>{{$schedule->route->To_city}}</td>
+               
+                <td>From {{$schedule->route->fromCity->name}} To {{$schedule->route->toCity->name}}</td>
                 <td> {{$schedule->flight->name}}</td>
                 <td>{{$schedule->time->name}} </td>
                
                 <td> 
-                  <a href="" class="btn btn-success">Edit</a>
+                  <a href="{{route('schedule.edit',$schedule->id)}}" class="btn btn-success">Edit</a>
                   <a href="" class="btn btn-info">Show</a>
+                  <form action="{{route('schedule.destroy',$schedule->id)}}" method="POST" class="d-inline-block" onsubmit="
+                        return confirm('Are you sure want to delete?')">
+                        @csrf 
+                        @method ('DELETE')
+                         <input type="submit" class="btn btn-danger" name="btnsubmit" value="delete">
+                   </form> 
                   
                   
                 </td>

@@ -103,7 +103,7 @@ class SeatController extends Controller
           // dd($request);
 
           $request->validate([
-            "class"=>"required",
+            "classflight"=>"required",
             "flight"=>"required",
             "airline"=>"required"
           ]);
