@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::resource('airline', 'AirlineController');
 
@@ -34,4 +34,7 @@ Route::resource('schedule', 'ScheduleController');
 Route::resource('booking', 'BookingController');
 
 Route::resource('booking_seat', 'BookingSeatController');
+
+//Frontend template
+Route::get('/', 'FrontendController@home')->name('mainpage');
 
