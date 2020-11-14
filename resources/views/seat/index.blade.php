@@ -17,7 +17,7 @@
       <div class="col-md-12">
         <div class="tile">
           <h2 class="d-inline-block"> Seat List </h2>
-          <a href="" class="btn btn-info float-right">Add New</a>
+          <a href="{{route('seat.create')}}" class="btn btn-info float-right">Add New</a>
           <table class="table mt-4 dataTable">
             <thead>
               <tr>
@@ -38,8 +38,14 @@
                 <td>{{$seat->airline->name}} </td>
                
                 <td> 
-                  <a href="" class="btn btn-success">Edit</a>
+                  <a href="{{route('seat.edit',$seat->id)}}" class="btn btn-success">Edit</a>
                   <a href="" class="btn btn-info">Show</a>
+                  <form action="{{route('seat.destroy',$seat->id)}}" method="POST" class="d-inline-block" onsubmit="
+                        return confirm('Are you sure want to delete?')">
+                        @csrf 
+                        @method ('DELETE')
+                         <input type="submit" class="btn btn-danger" name="btnsubmit" value="delete">
+                        </form> 
                   
                 </td>
               </tr>

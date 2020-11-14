@@ -38,3 +38,11 @@ Route::resource('booking_seat', 'BookingSeatController');
 //Frontend template
 Route::get('/', 'FrontendController@home')->name('mainpage');
 
+Route::get('login_page', 'FrontendController@login')->name('login_page');
+
+Route::get('signup_page', 'FrontendController@signup')->name('signup_page');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
