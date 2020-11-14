@@ -39,8 +39,14 @@
                 <td> {{$flight->airline->name}}   </td>
                
                 <td> 
-                  <a href="" class="btn btn-success">Edit</a>
+                  <a href="{{route('flight.edit',$flight->id)}}" class="btn btn-success">Edit</a>
                   <a href="" class="btn btn-info">Show</a>
+                  <form action="{{route('flight.destroy',$flight->id)}}" method="POST" class="d-inline-block" onsubmit="
+                        return confirm('Are you sure want to delete?')">
+                        @csrf 
+                        @method ('DELETE')
+                         <input type="submit" class="btn btn-danger" name="btnsubmit" value="delete">
+                        </form> 
                   
                 </td>
               </tr>

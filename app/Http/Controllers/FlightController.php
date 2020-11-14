@@ -78,7 +78,8 @@ class FlightController extends Controller
      */
     public function edit(Flight $flight)
     {
-        //
+        $airlines=Airline::all();
+        return view('flight.edit',compact('flight','airlines'));
     }
 
     /**
@@ -90,7 +91,21 @@ class FlightController extends Controller
      */
     public function update(Request $request, Flight $flight)
     {
-        //
+      //dd($request);
+        $request->validate([
+            "name"=>"required",
+            "total_seat"=>"required",
+            "airline"=>"required"
+        ]);
+
+    
+    $flight->name=$request->name;
+    $flight->total_seats=$request->total_seat;
+    $flight->airline_id=$request->airline;
+    $flight->save();
+
+    return redirect()->route('flight.index');
+    
     }
 
     /**
