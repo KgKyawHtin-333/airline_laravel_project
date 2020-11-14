@@ -18,4 +18,7 @@ class Schedule extends Model
     public function time(){
         return $this->belongsTo('App\Time');
     }
+    public function airline(){
+        return $this->belongsTo('App\Airline');
+    }
 }

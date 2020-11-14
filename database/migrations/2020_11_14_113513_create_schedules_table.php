@@ -15,7 +15,6 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
-
             $table->unsignedBigInteger('route_id');
 
             $table->foreign('route_id')
@@ -36,7 +35,6 @@ class CreateSchedulesTable extends Migration
                     ->references('id')
                     ->on('flights')
                     ->onDelete('cascade'); 
-
             $table->timestamps();
         });
     }

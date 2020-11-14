@@ -17,7 +17,7 @@
       <div class="col-md-12">
         <div class="tile">
           <h2 class="d-inline-block"> Route List </h2>
-          <a href="" class="btn btn-info float-right">Add New</a>
+          <a href="{{route('route.create')}}" class="btn btn-info float-right">Add New</a>
           <table class="table mt-4 dataTable">
             <thead>
               <tr>
@@ -34,13 +34,19 @@
              @foreach($routes as $route)
               <tr>
                 <td> {{$i++}}  </td>
-                <td>{{$route->From_city}}</td>
-                <td> {{$route->To_city}}   </td>
+                <td>{{$route->fromCity->name}}</td>
+                <td> {{$route->toCity->name}}   </td>
                 <td> {{$route->price}}   </td>
                 
                 <td> 
-                  <a href="" class="btn btn-success">Edit</a>
+                  <a href="{{route('route.edit',$route->id)}}" class="btn btn-success">Edit</a>
                   <a href="" class="btn btn-info">Show</a>
+                  <form action="{{route('route.destroy',$route->id)}}" method="POST" class="d-inline-block" onsubmit="
+                        return confirm('Are you sure want to delete?')">
+                        @csrf 
+                        @method ('DELETE')
+                         <input type="submit" class="btn btn-danger" name="btnsubmit" value="delete">
+                   </form> 
                   
                 </td>
               </tr>

@@ -17,7 +17,7 @@
       <div class="col-md-12">
         <div class="tile">
           <h2 class="d-inline-block"> Schedule List </h2>
-          <a href="" class="btn btn-info float-right">Add New</a>
+          <a href="{{route('schedule.create')}}" class="btn btn-info float-right">Add New</a>
           <table class="table mt-4 dataTable">
             <thead>
               <tr>

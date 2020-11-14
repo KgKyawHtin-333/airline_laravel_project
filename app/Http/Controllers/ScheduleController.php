@@ -6,6 +6,7 @@ use App\Schedule;
 use App\Route;
 use App\Flight;
 use App\Time;
+use App\Airline;
 use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
@@ -31,7 +32,12 @@ class ScheduleController extends Controller
      */
     public function create()
     {
-        //
+        $schedules=Schedule::all();
+        $routes=Route::all();
+        $airlines=Airline::all();
+        $flights=Flight::all();
+        $times=Time::all();
+        return view('schedule.create',compact('schedules','routes','airlines','flights','times'));
     }
 
     /**
@@ -42,7 +48,20 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "From_city"=>"required",
+            "To_city"=>"required",
+            "flight_name"=>"required",
+            "time" =>"required"
+        ]);
+
+            $schedule= Schedule::create(['route_id' => $request->From_city, $request->To_city,
+                                        'flight_id'=>$request->flight_name,
+                                        'time_id' => $request->time
+        ]);
+        $schedule->save();
+         return Redirect()->route('schedule.index');
+
     }
 
     /**

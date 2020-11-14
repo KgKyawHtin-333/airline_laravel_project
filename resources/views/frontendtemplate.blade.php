@@ -80,10 +80,7 @@
 										<input type="radio" id="one-way" name="flight-type">
 										<span></span>One way
 									</label>
-									<label for="multi-city">
-										<input type="radio" id="multi-city" name="flight-type">
-										<span></span>Multi-City
-									</label>
+									
 								</div>
 							</div>
 							<div class="row">
@@ -143,7 +140,7 @@
 										<select class="form-control">
 											<option>Economy class</option>
 											<option>Business class</option>
-											<option>First class</option>
+										
 										</select>
 										<span class="select-arrow"></span>
 									</div>
