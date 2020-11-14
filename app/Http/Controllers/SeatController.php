@@ -31,7 +31,11 @@ class SeatController extends Controller
      */
     public function create()
     {
-        //
+        $airlines=Airline::all();
+        $flights=Flight::all();
+        $classflights=ClassFlight::all();
+        $seats=Seat::all();
+        return view('seat.create',compact('airlines','seats','classflights','flights'));
     }
 
     /**
@@ -42,7 +46,23 @@ class SeatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // dd($request);
+
+         $request->validate([
+            "classflight"=>"required",
+            "flight"=>"required",
+            "airline"=>"required"
+        ]);
+
+
+          $seat= Seat::create(['class_flight_id' => $request->classflight,
+                                 'flight_id'=>$request->flight,
+                                  'airline_id' => $request->airline
+          ]);
+
+
+         $seat->save();
+         return Redirect()->route('seat.index');
     }
 
     /**
@@ -64,7 +84,11 @@ class SeatController extends Controller
      */
     public function edit(Seat $seat)
     {
-        //
+        $airlines=Airline::all();
+        $flights=Flight::all();
+        $classflights=ClassFlight::all();
+      
+        return view('seat.edit',compact('airlines','seat','classflights','flights'));
     }
 
     /**
@@ -76,7 +100,22 @@ class SeatController extends Controller
      */
     public function update(Request $request, Seat $seat)
     {
-        //
+          // dd($request);
+
+          $request->validate([
+            "class"=>"required",
+            "flight"=>"required",
+            "airline"=>"required"
+          ]);
+
+    
+       $seat->class_flight_id=$request->classflight;
+       $seat->flight_id=$request->flight;
+       $seat->airline_id=$request->airline;
+       $seat->save();
+
+        return redirect()->route('seat.index');
+
     }
 
     /**
@@ -87,6 +126,8 @@ class SeatController extends Controller
      */
     public function destroy(Seat $seat)
     {
-        //
+        $seat->delete();
+
+        return redirect()->route('seat.index');
     }
 }

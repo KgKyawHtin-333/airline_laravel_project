@@ -45,7 +45,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home
+          <a class="nav-link" href="{{route('mainpage')}}">Home
                 <span class="sr-only">(current)</span>
               </a>
         </li>
@@ -58,10 +58,17 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Contact</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('login_page')}}">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('signup_page')}}">Sign Up</a>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+
 
 
 	<div id="booking" class="section">
@@ -158,11 +165,14 @@
 		</div>
 	</div>
 
+	@yield('content')
+
+
     
 
 <script src="{{ asset('frontend_asset/vendor/jquery/jquery.min.js')}}"></script>
 
- <script src="{{ asset('frontend_asset/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{ asset('frontend_asset/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
