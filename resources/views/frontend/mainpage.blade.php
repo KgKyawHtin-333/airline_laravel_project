@@ -20,23 +20,32 @@
 										<input type="radio" id="one-way" name="flight-type">
 										<span></span>One way
 									</label>
-									<label for="multi-city">
-										<input type="radio" id="multi-city" name="flight-type">
-										<span></span>Multi-City
-									</label>
+									
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Flying from</span>
-										<input class="form-control" type="text" placeholder="City or airport">
+										<select class="form-control">
+											<option> From City</option>
+											@foreach($cities as $city)
+											<option> {{$city->name}} </option>
+										    @endforeach
+										</select>
+										
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Flyning to</span>
-										<input class="form-control" type="text" placeholder="City or airport">
+										<select class="form-control">
+											<option> To City </option>
+											@foreach($cities as $city)
+											<option> {{$city->name}} </option>
+											@endforeach
+										</select>
+										<!-- <input class="form-control" type="text" placeholder="City or airport"> -->
 									</div>
 								</div>
 							</div>
@@ -83,7 +92,7 @@
 										<select class="form-control">
 											<option>Economy class</option>
 											<option>Business class</option>
-											<option>First class</option>
+											
 										</select>
 										<span class="select-arrow"></span>
 									</div>
