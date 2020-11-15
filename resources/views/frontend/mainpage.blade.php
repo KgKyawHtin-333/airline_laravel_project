@@ -28,20 +28,7 @@
 							  <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
 								<form class="form-wrap">
 
-                              <div class="form-group">
-                                 <div class="form-checkbox">
-                                    <label for="roundtrip">
-                                       <input type="radio" id="roundtrip" name="flight-type">
-                                       <span></span>Roundtrip
-                                    </label>
-                                    <label for="one-way">
-                                       <input type="radio" id="one-way" name="flight-type">
-                                       <span></span>One way
-                                    </label>
-                                    
-                                 </div>
-                           </div>
-									
+                             
 									<select class="form-control" >
 										<option> From city </option>
 										@foreach($cities as $city)
@@ -62,9 +49,6 @@
 
 
                               
-									<input type="text" class="form-control" name="name" placeholder="From City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
-									<input type="text" class="form-control" name="to" placeholder="To City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
-									<input type="date" class="form-control date-picker" name="start" placeholder="Departure " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
 									
 
 									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
@@ -88,25 +72,7 @@
 									<a href="#" class="primary-btn text-uppercase">Search flights</a>									
 								</form>
 							  </div>
-							   <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
-								<form class="form-wrap">
-									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
-									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
-									<input type="date" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
-									<input type="date" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-                           <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">	
-                           <div class="form-group">
-                              <select class="form-control" name="">
-                                          <option>Seat</option>
-                                          <option>Option 1</option>
-                                          <option>Option 2</option>
-                                          <option>Option 3</option>
-                              </select>
-                            </div>							
-									<a href="#" class="primary-btn text-uppercase">Search Hotels</a>									
-								</form>							  	
-							  </div> 
+							   
 							  <!-- <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
 								<form class="form-wrap">
 									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
