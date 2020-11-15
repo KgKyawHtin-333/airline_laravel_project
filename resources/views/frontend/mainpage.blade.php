@@ -1,95 +1,149 @@
 @extends('frontendtemplate')
 
 @section('content')
-<section >
-         <div class="banner-main">
-            <img src="{{asset('frontend_asset/images/background.jpg')}}" alt="#"/>
-            <div class="container">
-               <div class="text-bg">
-                  <h1>Flight With<br><strong class="white">Us</strong></h1>
-                  <div class="button_section"> <a class="main_bt" href="#">Read More</a>  </div>
-                  <div class="container">
-                     <form class="main-form">
-                        <h3>Find Your Tour</h3>
-                        <div class="row">
-                          
-                           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                              <a href="#">search</a>
+      <!-- start banner Area -->
+			<section class="banner-area relative">
+				<div class="overlay overlay-bg"></div>				
+				<div class="container">
+					<div class="row fullscreen align-items-center justify-content-between my-5">
+						<div class="col-lg-6 col-md-6 banner-left">
+							<h6 class="text-white">Away from monotonous life</h6>
+							<h1 class="text-white">Magical Travel</h1>
+							<p class="text-white">
+								If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $.17 each.
+							</p>
+							<a href="#" class="primary-btn text-uppercase">Get Started</a>
+						</div>
+						<div class="col-lg-4 col-md-6 banner-right">
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+							  <li class="nav-item">
+							    <a class="nav-link active" id="flight-tab" data-toggle="tab" href="#flight" role="tab" aria-controls="flight" aria-selected="true">Flights</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="false">Hotels</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab" aria-controls="holiday" aria-selected="false">Holidays</a>
+							  </li>
+							</ul>
+							<div class="tab-content" id="myTabContent">
+							  <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+								<form class="form-wrap">
+                              <div class="form-group">
+                                 <div class="form-checkbox">
+                                    <label for="roundtrip">
+                                       <input type="radio" id="roundtrip" name="flight-type">
+                                       <span></span>Roundtrip
+                                    </label>
+                                    <label for="one-way">
+                                       <input type="radio" id="one-way" name="flight-type">
+                                       <span></span>One way
+                                    </label>
+                                    
+                                 </div>
                            </div>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- about -->
-      <div id="about" class="about">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12 ">
-                  <div class="titlepage">
-                     <h2>About  our Flight With Us</h2>
-                     <span> fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="bg">
-            <div class="container">
-               <div class="row">
-                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                     <div class="about-box">
-                        <p> <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure thereThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there</span></p>
-                        <div class="palne-img-area">
-                           <img src="{{asset('frontend_asset/images/plane-img.png')}}" alt="images">
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <a href="#">Read More</a>
-         </div>
-      </div>
-      <!-- end about -->
-      <!-- traveling -->
-      <div id="travel" class="traveling">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12 ">
-                  <div class="titlepage">
-                     <h2>Select Offers For Traveling</h2>
-                     <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span> 
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                  <div class="traveling-box">
-                     <i><img src="{{asset('frontend_asset/icon/mmnationalairline.png')}}" alt="icon"/></i>
-                     <h3>Myanmar national Airline</h3>
-                     
-                  </div>
-               </div>
-               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                  <div class="traveling-box">
+									<input type="text" class="form-control" name="name" placeholder="From City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
+									<input type="text" class="form-control" name="to" placeholder="To City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
+									<input type="date" class="form-control date-picker" name="start" placeholder="Departure " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+									<input type="date" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
+                           <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                            <div class="form-group">
+                              <select class="form-control" name="">
+                                          <option>Seat Class</option>
+                                          <option>Option 1</option>
+                                          <option>Option 2</option>
+                                          <option>Option 3</option>
+                              </select>
+                            </div>							
+									<a href="#" class="primary-btn text-uppercase">Search flights</a>									
+								</form>
+							  </div>
+							  <!-- <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
+								<form class="form-wrap">
+									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
+									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
+									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
+									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">						
+									<a href="#" class="primary-btn text-uppercase">Search Hotels</a>									
+								</form>							  	
+							  </div> -->
+							  <!-- <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
+								<form class="form-wrap">
+									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
+									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
+									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
+									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">							
+									<a href="#" class="primary-btn text-uppercase">Search Holidays</a>									
+								</form>							  	
+							  </div> -->
+							</div>
+						</div>
+					</div>
+				</div>					
+			</section>
+			<!-- End banner Area -->
 
-                     <i><img src="{{asset('frontend_asset/icon/airkbz.png')}}" alt="icon"/></i>
-                     <h3>Air KBZ</h3>
-                     
-                  </div>
-               </div>
-               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                  <div class="traveling-box">
-                     <i><img src="{{asset('frontend_asset/icon/goldenmm.png')}}" alt="icon"/></i>
-                     <h3>Golden Myanmar</h3>
-                     
-                  </div>
-               </div>
-               
-               </div>
-            </div>
-         </div>
-      </div>
+			<!-- Start popular-destination Area -->
+			<section class="popular-destination-area section-gap">
+				<div class="container">
+		            <div class="row d-flex justify-content-center">
+		                <div class="menu-content pb-70 col-lg-8">
+		                    <div class="title text-center">
+		                        <h1 class="mb-10">AirLine Name</h1>
+		                        <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day.</p>
+		                    </div>
+		                </div>
+		            </div>						
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="single-destination relative">
+								<div class="thumb relative">
+									<div class="overlay overlay-bg"></div>
+									<img class="img-fluid" src="{{asset('frontend_asset/img/kbz.png')}}" alt="">
+								</div>
+								<div class="desc">	
+									<a href="#" class="price-btn">$150</a>			
+									<h4>Mountain River</h4>
+									<p>Paraguay</p>			
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="single-destination relative">
+								<div class="thumb relative">
+									<div class="overlay overlay-bg"></div>
+									<img class="img-fluid" src="{{asset('frontend_asset/img/goldenmyanmar.jpg')}}" alt="">
+								</div>
+								<div class="desc">	
+									<a href="#" class="price-btn">$250</a>			
+									<h4>Dream City</h4>
+									<p>Paris</p>			
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="single-destination relative">
+								<div class="thumb relative">
+									<div class="overlay overlay-bg"></div>
+									<img class="img-fluid" src="{{asset('frontend_asset/img/mmair.jpg')}}" alt="">
+								</div>
+								<div class="desc">	
+									<a href="#" class="price-btn">$350</a>			
+									<h4>Cloud Mountain</h4>
+									<p>Sri Lanka</p>			
+								</div>
+							</div>
+						</div>												
+					</div>
+				</div>	
+			</section>
+			<!-- End popular-destination Area -->
+
+     
 
 @endsection

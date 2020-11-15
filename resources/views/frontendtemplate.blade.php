@@ -1,187 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="img/fav.png">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Fly with us</title>
 
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>Eforlad travel</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" href="{{asset('frontend_asset/css/bootstrap.min.css')}}">
-      <!-- style css -->
-      <link rel="stylesheet" href="{{asset('frontend_asset/css/style.css')}}">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="{{asset('frontend_asset/css/responsive.css')}}">
-      <!-- fevicon -->
-      <link rel="icon" href="{{asset('frontend_asset/images/fevicon.png')}}" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="{{asset('frontend_asset/css/jquery.mCustomScrollbar.min.css')}}">
-      <!-- Tweaks for older IEs-->
-      <!-- owl stylesheets --> 
-      <link rel="stylesheet" href="{{asset('frontend_asset/css/owl.carousel.min.css')}}">
-      <link rel="stylesheet" href="{{asset('frontend_asset/css/owl.theme.default.min.css')}}">
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-   </head>
-   <!-- body -->
-   <body class="main-layout">
-      <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="{{asset('frontend_asset/images/loading.gif')}}" alt="#" /></div>
-      </div>
-      <!-- end loader -->
-      <!-- header -->
-      <header>
-         <!-- header inner -->
-         <div class="header">
-            <div class="header_white_section">
-               <div class="container-fluid">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <div class="header_information">
-                           <ul>
-                              <li><img src="{{asset('frontend_asset/images/1.png')}}" alt="#"/> 145.street road new York</li>
-                              <li><img src="{{asset('frontend_asset/images/2.png')}}" alt="#"/> +71  5678954378</li>
-                              <li><img src="{{asset('frontend_asset/images/3.png')}}" alt="#"/> Demo@hmail.com</li>
-                           </ul>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="container">
-               <div class="row">
-                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                     <div class="full">
-                        <div class="center-desk">
-                           <div class="logo"> <a href="#"><img src="{{asset('frontend_asset/images/logo.png')}}" alt="#"></a> </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
-                     <div class="menu-area">
-                        <div class="limit-box">
-                           <nav class="main-menu">
-                              <ul class="menu-area-main">
-                                 <li class="active"> <a href="#">Home</a> </li>
-                                 <li> <a href="#about">About</a> </li>
-                                 <li><a href="#travel">Travel</a></li>
-                                 <li><a href="#blog">Blog</a></li>
-                                 <li><a href="#contact">Contact Us</a></li>
-                              </ul>
-                           </nav>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- end header inner -->
-      </header>
-          @yield('content')
-      <!-- footer -->
-      <footer>
-         <div id="contact" class="footer">
-            <div class="container">
-               <div class="row pdn-top-30">
-                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                     <ul class="location_icon">
-                        <li> <a href="#"><img src="{{asset('frontend_asset/icon/facebook.png')}}"></a></li>
-                        <li> <a href="#"><img src="{{asset('frontend_asset/icon/Twitter.png')}}"></a></li>
-                        <li> <a href="#"><img src="{{asset('frontend_asset/icon/linkedin.png')}}"></a></li>
-                        <li> <a href="#"><img src="{{asset('frontend_asset/icon/instagram.png')}}"></a></li>
-                     </ul>
-                  </div>
-                  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                     <div class="Follow">
-                        <h3>CONTACT US</h3>
-                        <span>123 Second Street Fifth <br>Avenue,<br>
-                        Manhattan, New York<br>
-                        +987 654 3210</span>
-                     </div>
-                  </div>
-                  <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                     <div class="Follow">
-                        <h3>ADDITIONAL LINKS</h3>
-                        <ul class="link">
-                           <li> <a href="#">About us</a></li>
-                           <li> <a href="#">Terms and conditions</a></li>
-                           <li> <a href="#"> Privacy policy</a></li>
-                           <li> <a href="#">News</a></li>
-                           <li> <a href="#"> Contact us</a></li>
-                        </ul>
-                     </div>
-                  </div>
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                     <div class="Follow">
-                        <h3> Contact</h3>
-                        <div class="row">
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                              <input class="Newsletter" placeholder="Name" type="text">
-                           </div>
-                           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                              <input class="Newsletter" placeholder="Email" type="text">
-                           </div>
-                           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                              <textarea class="textarea" placeholder="comment" type="text">Comment</textarea>
-                           </div>
-                        </div>
-                        <button class="Subscribe">Submit</button>
-                     </div>
-                  </div>
-               </div>
-               <div class="copyright">
-                  <div class="container">
-                     <p>Copyright 2019 All Right Reserved By <a href="https://html.design/">Free html Templates</a></p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script src="{{asset('frontend_asset/js/jquery.min.js')}}"></script>
-      <script src="{{asset('frontend_asset/js/popper.min.js')}}"></script>
-      <script src="{{asset('frontend_asset/js/bootstrap.bundle.min.js')}}"></script>
-      <script src="{{asset('frontend_asset/js/jquery-3.0.0.min.js')}}"></script>
-      <script src="{{asset('frontend_asset/js/plugin.js')}}"></script>
-      <!-- sidebar -->
-      <script src="{{asset('frontend_asset/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
-      <script src="{{asset('frontend_asset/js/custom.js')}}"></script>
-      <!-- javascript --> 
-      <script src="{{asset('frontend_asset/js/owl.carousel.js')}}"></script>
-      <script>
-         $(document).ready(function() {
-           var owl = $('.owl-carousel');
-           owl.owlCarousel({
-             margin: 10,
-             nav: true,
-             loop: true,
-             responsive: {
-               0: {
-                 items: 1
-               },
-               600: {
-                 items: 2
-               },
-               1000: {
-                 items: 3
-               }
-             }
-           })
-         })
-      </script>
-     
-   </body>
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+			<!--
+			CSS
+			============================================= -->
+			<link rel="stylesheet" href="{{asset('frontend_asset/css/linearicons.css')}}">
+			<link rel="stylesheet" href="{{asset('frontend_asset/css/font-awesome.min.css')}}">
+			<link rel="stylesheet" href="{{asset('frontend_asset/css/bootstrap.css')}}">
+			<link rel="stylesheet" href="{{asset('frontend_asset/css/magnific-popup.css')}}">
+			<link rel="stylesheet" href="{{asset('frontend_asset/css/jquery-ui.css')}}">				
+			<link rel="stylesheet" href="{{asset('frontend_asset/css/nice-select.css')}}">							
+			<link rel="stylesheet" href="{{asset('frontend_asset/css/animate.min.css')}}">
+			<link rel="stylesheet" href="{{asset('frontend_asset/css/owl.carousel.css')}}">				
+			<link rel="stylesheet" href="{{asset('frontend_asset/css/main.css')}}">
+		</head>
+		<body>	
+			<header id="header">
+				<div class="header-top">
+					<div class="container">
+			  		<div class="row align-items-center">
+			  			<div class="col-lg-6 col-sm-6 col-6 header-top-left">
+			  				<ul>
+			  					<li><a href="#">Visit Us</a></li>
+			  					<li><a href="#">Buy Tickets</a></li>
+			  				</ul>			
+			  			</div>
+			  			<div class="col-lg-6 col-sm-6 col-6 header-top-right">
+							<div class="header-social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-dribbble"></i></a>
+								<a href="#"><i class="fa fa-behance"></i></a>
+							</div>
+			  			</div>
+			  		</div>			  					
+					</div>
+				</div>
+				<div class="container main-menu">
+					<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="index.html"><img src="{{asset('frontend_asset/img/logo.png')}}" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li><a href="#">Home</a></li>
+				          <li><a href="#">About</a></li>					          					          		          
+				          <li><a href="contact.html">Contact</a></li>
+				        </ul>
+				      </nav><!-- #nav-menu-container -->					      		  
+					</div>
+				</div>
+			</header><!-- #header -->
+			
+			@yield('content')
+			<!-- start footer Area -->		
+			<footer class="footer-area section-gap">
+				<div class="container">
 
+					<div class="row">
+               <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="single-footer-widget mb-80">
+                        <h6>Partner With Us</h6>
+                        <img src="http://www.quietplace.pyaynyithu.me/design/img/bg-img/visa2.png" width="45" height="45">
+                        <img src="http://www.quietplace.pyaynyithu.me/design/img/bg-img/paypal.png" width="25" height="25">
+                        <img src="http://www.quietplace.pyaynyithu.me/design/img/bg-img/master.png" width="50" height="50">
+                        <img src="http://www.quietplace.pyaynyithu.me/design/img/bg-img/ali2.png" width="35" height="35">
+                    </div>
+                </div>
+						<div class="col-lg-3 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>Navigation Links</h6>
+								<div class="row">
+									<div class="col">
+										<ul>
+											<li><a href="#">Home</a></li>
+											<li><a href="#">Feature</a></li>
+											<li><a href="#">Services</a></li>
+											<li><a href="#">Portfolio</a></li>
+										</ul>
+									</div>
+									<div class="col">
+										<ul>
+											<li><a href="#">Team</a></li>
+											<li><a href="#">Pricing</a></li>
+											<li><a href="#">Blog</a></li>
+											<li><a href="#">Contact</a></li>
+										</ul>
+									</div>										
+								</div>							
+							</div>
+						</div>							
+						<div class="col-lg-3  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>Newsletter</h6>
+								<p>
+									For business professionals caught between high OEM price and mediocre print and graphic output.									
+								</p>								
+								<div id="mc_embed_signup">
+									<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscription relative">
+										<div class="input-group d-flex flex-row">
+											<input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
+											<button class="btn bb-btn"><span class="lnr lnr-location"></span></button>		
+										</div>									
+										<div class="mt-10 info"></div>
+									</form>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3  col-md-6 col-sm-6">
+							<div class="single-footer-widget mail-chimp">
+								<h6 class="mb-20">InstaFeed</h6>
+								<ul class="instafeed d-flex flex-wrap">
+									<li><img src="img/i1.jpg" alt=""></li>
+									<li><img src="img/i2.jpg" alt=""></li>
+									<li><img src="img/i3.jpg" alt=""></li>
+									<li><img src="img/i4.jpg" alt=""></li>
+									<li><img src="img/i5.jpg" alt=""></li>
+									<li><img src="img/i6.jpg" alt=""></li>
+									<li><img src="img/i7.jpg" alt=""></li>
+									<li><img src="img/i8.jpg" alt=""></li>
+								</ul>
+							</div>
+						</div>						
+					</div>
 
+					<div class="row footer-bottom d-flex justify-content-between align-items-center">
+						<p class="col-lg-8 col-sm-12 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+						<div class="col-lg-4 col-sm-12 footer-social">
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->	
 
-</html>
+			<script src="{{asset('frontend_asset/js/vendor/jquery-2.2.4.min.js')}}"></script>
+			<script src="{{asset('frontend_asset/js/popper.min.js')}}"></script>
+			<script src="{{asset('frontend_asset/js/vendor/bootstrap.min.js')}}"></script>			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>		
+ 			<script src="{{asset('frontend_asset/js/jquery-ui.js')}}"></script>					
+  			<script src="{{asset('frontend_asset/js/easing.min.js')}}"></script>			
+			<script src="{{asset('frontend_asset/js/hoverIntent.js')}}"></script>
+			<script src="{{asset('frontend_asset/js/superfish.min.js')}}"></script>	
+			<script src="{{asset('frontend_asset/js/jquery.ajaxchimp.min.js')}}"></script>
+			<script src="{{asset('frontend_asset/js/jquery.magnific-popup.min.js')}}"></script>						
+			<script src="{{asset('frontend_asset/js/jquery.nice-select.min.js')}}"></script>					
+			<script src="{{asset('frontend_assetjs/owl.carousel.min.js')}}"></script>							
+			<script src="{{asset('frontend_asset/js/mail-script.js')}}"></script>	
+			<script src="{{asset('frontend_asset/js/main.js')}}"></script>	
+		</body>
+	</html>
