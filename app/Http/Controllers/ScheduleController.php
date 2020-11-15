@@ -52,12 +52,14 @@ class ScheduleController extends Controller
     {
         //dd($request);
         $request->validate([
+            "date"=>"required",
             "route"=>"required",
             "flight_name"=>"required",
             "time" =>"required"
         ]);
 
-            $schedule= Schedule::create(['route_id' => $request->route, 
+            $schedule= Schedule::create(['date' => $request->date,
+                                        'route_id' => $request->route, 
                                         'flight_id'=>$request->flight_name,
                                         'time_id' => $request->time
         ]);
@@ -101,10 +103,12 @@ class ScheduleController extends Controller
     public function update(Request $request, Schedule $schedule)
     {
         $request->validate([
+            "date" => "required",
             "route"=>"required",
             "flight_name"=>"required",
             "time" =>"required"
         ]);
+        $schedule->date=$request->date;
         $schedule->route_id=$request->route;
         $schedule->flight_id=$request->flight_name;
         $schedule->time_id=$request->time;
