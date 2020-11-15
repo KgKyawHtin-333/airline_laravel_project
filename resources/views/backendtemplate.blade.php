@@ -108,6 +108,8 @@
         <li><a class="app-menu__item" href="{{route('booking_seat.index')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label"> Booking Seats</span></a></li>
 
         <li><a class="app-menu__item" href="{{route('schedule.index')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label"> Schedules </span></a></li>
+
+        <li><a class="app-menu__item" href="{{route('city.index')}}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label"> Cities </span></a></li>
         
         <!-- putting Route is getting error And I don't know why so must ask tchel later -->
 

@@ -35,12 +35,16 @@ Route::resource('booking', 'BookingController');
 
 Route::resource('booking_seat', 'BookingSeatController');
 
+Route::resource('city', 'CityController');
+
 //Frontend template
 Route::get('/', 'FrontendController@home')->name('mainpage');
 
 Route::get('login_page', 'FrontendController@login')->name('login_page');
 
 Route::get('signup_page', 'FrontendController@signup')->name('signup_page');
+
+Route::get('register_page', 'FrontendController@register_page')->name('register_page');
 
 
 Auth::routes();

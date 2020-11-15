@@ -73,6 +73,7 @@
                </div>
                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                   <div class="traveling-box">
+
                      <i><img src="{{asset('frontend_asset/icon/airkbz.png')}}" alt="icon"/></i>
                      <h3>Air KBZ</h3>
                      
@@ -90,16 +91,5 @@
             </div>
          </div>
       </div>
-      <!-- end traveling -->
-     
-      <!--Tours -->
-     
-      <!-- end Tours -->
-     
-      
-      <!-- footer -->
-      <footer>
-
-         
 
 @endsection
