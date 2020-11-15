@@ -4,7 +4,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
+		<link rel="shortcut icon" href="{{asset('frontend_asset/img/fav.png')}}">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -52,7 +52,7 @@
 			  		</div>			  					
 					</div>
 				</div>
-				<div class="container main-menu">
+				<div class="container main-menu ">
 					<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
 				        <a href="index.html"><img src="{{asset('frontend_asset/img/logo.png')}}" alt="" title="" /></a>
@@ -156,6 +156,7 @@
 						</div>
 						<div class="col-lg-3  col-md-6 col-sm-6">
 							<div class="single-footer-widget mail-chimp">
+
 								<h6 class="mb-20">InstaFeed</h6>
 								<!-- <ul class="instafeed d-flex flex-wrap">
 									<li><img src="img/i1.jpg" alt=""></li>
@@ -167,6 +168,14 @@
 									<li><img src="img/i7.jpg" alt=""></li>
 									<li><img src="img/i8.jpg" alt=""></li>
 								</ul> -->
+
+								<h6 class="mb-20">have any question?</h6>
+								<ul class="footer-nav">
+                            <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> 39,Pwal Sar Street,Kyimyindaing,Yangon</a></li>
+                            <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +95 9421099378</a></li>
+                            <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> flight with us@gmail.com</a></li>
+                        </ul>
+
 							</div>
 						</div>						
 					</div>
