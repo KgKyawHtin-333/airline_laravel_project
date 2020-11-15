@@ -1,106 +1,105 @@
 @extends('frontendtemplate')
 
 @section('content')
+<section >
+         <div class="banner-main">
+            <img src="{{asset('frontend_asset/images/background.jpg')}}" alt="#"/>
+            <div class="container">
+               <div class="text-bg">
+                  <h1>Flight With<br><strong class="white">Us</strong></h1>
+                  <div class="button_section"> <a class="main_bt" href="#">Read More</a>  </div>
+                  <div class="container">
+                     <form class="main-form">
+                        <h3>Find Your Tour</h3>
+                        <div class="row">
+                          
+                           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                              <a href="#">search</a>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- about -->
+      <div id="about" class="about">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 ">
+                  <div class="titlepage">
+                     <h2>About  our Flight With Us</h2>
+                     <span> fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="bg">
+            <div class="container">
+               <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                     <div class="about-box">
+                        <p> <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure thereThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there</span></p>
+                        <div class="palne-img-area">
+                           <img src="{{asset('frontend_asset/images/plane-img.png')}}" alt="images">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <a href="#">Read More</a>
+         </div>
+      </div>
+      <!-- end about -->
+      <!-- traveling -->
+      <div id="travel" class="traveling">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 ">
+                  <div class="titlepage">
+                     <h2>Select Offers For Traveling</h2>
+                     <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span> 
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{{asset('frontend_asset/icon/mmnationalairline.png')}}" alt="icon"/></i>
+                     <h3>Myanmar national Airline</h3>
+                     
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{{asset('frontend_asset/icon/airkbz.png')}}" alt="icon"/></i>
+                     <h3>Air KBZ</h3>
+                     
+                  </div>
+               </div>
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="traveling-box">
+                     <i><img src="{{asset('frontend_asset/icon/goldenmm.png')}}" alt="icon"/></i>
+                     <h3>Golden Myanmar</h3>
+                     
+                  </div>
+               </div>
+               
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end traveling -->
+     
+      <!--Tours -->
+     
+      <!-- end Tours -->
+     
+      
+      <!-- footer -->
+      <footer>
 
-
-<div id="booking" class="section">
-		<div class="section-center">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-					<div class="booking-form">
-						<form>
-							<div class="form-group">
-								<div class="form-checkbox">
-									<label for="roundtrip">
-										<input type="radio" id="roundtrip" name="flight-type">
-										<span></span>Roundtrip
-									</label>
-									<label for="one-way">
-										<input type="radio" id="one-way" name="flight-type">
-										<span></span>One way
-									</label>
-									<label for="multi-city">
-										<input type="radio" id="multi-city" name="flight-type">
-										<span></span>Multi-City
-									</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Flying from</span>
-										<input class="form-control" type="text" placeholder="City or airport">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<span class="form-label">Flyning to</span>
-										<input class="form-control" type="text" placeholder="City or airport">
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<span class="form-label">Departing</span>
-										<input class="form-control" type="date" required>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-group">
-										<span class="form-label">Returning</span>
-										<input class="form-control" type="date" required>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<span class="form-label">Adults (18+)</span>
-										<select class="form-control">
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-										</select>
-										<span class="select-arrow"></span>
-									</div>
-								</div>
-								<div class="col-md-2">
-									<div class="form-group">
-										<span class="form-label">Children (0-17)</span>
-										<select class="form-control">
-											<option>0</option>
-											<option>1</option>
-											<option>2</option>
-										</select>
-										<span class="select-arrow"></span>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-3">
-									<div class="form-group">
-										<span class="form-label">Travel class</span>
-										<select class="form-control">
-											<option>Economy class</option>
-											<option>Business class</option>
-											<option>First class</option>
-										</select>
-										<span class="select-arrow"></span>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="form-btn">
-										<button class="submit-btn">Show flights</button>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
+         
 
 @endsection
