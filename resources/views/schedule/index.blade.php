@@ -22,6 +22,7 @@
             <thead>
               <tr>
                 <th>No</th>
+                <th>Date</th>
                 <th>Route Name</th>
                 <th>Flight Name</th>
                 <th>Time Name</th>
@@ -33,7 +34,7 @@
              @foreach($schedules as $schedule)
               <tr>
                 <td> {{$i++}}  </td>
-               
+                <td> {{$schedule->date}} </td>
                 <td>From {{$schedule->route->fromCity->name}} To {{$schedule->route->toCity->name}}</td>
                 <td> {{$schedule->flight->name}}</td>
                 <td>{{$schedule->time->name}} </td>

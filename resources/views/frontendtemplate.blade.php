@@ -59,9 +59,42 @@
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
+
 				          <li><a href="#">Home</a></li>
 				          <li><a href="#">About</a></li>					          					          		          
 				          <li><a href="#contact">Contact</a></li>
+
+  				          @auth
+
+                         <li class="nav-item dropdown">
+                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                          {{ Auth::user()->name }}
+                          </a>
+
+                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                          </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                        </form>
+                         </div>
+                         </li>
+
+                         @else
+
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('login_page')}}">Log in</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('signup_page')}}">Sign Up</a>
+                          </li>
+
+                          @endauth                
+
 				        </ul>
 				      </nav><!-- #nav-menu-container -->					      		  
 					</div>
@@ -70,8 +103,11 @@
 			
 			@yield('content')
 			<!-- start footer Area -->		
+
 			<footer class="footer-area section-gap">
 				<div class="container" id="contact">
+
+
 
 					<div class="row">
                <div class="col-12 col-sm-6 col-lg-3">
@@ -125,12 +161,26 @@
 						</div>
 						<div class="col-lg-3  col-md-6 col-sm-6" id="contact">
 							<div class="single-footer-widget mail-chimp">
+
+								<h6 class="mb-20">InstaFeed</h6>
+								<!-- <ul class="instafeed d-flex flex-wrap">
+									<li><img src="img/i1.jpg" alt=""></li>
+									<li><img src="img/i2.jpg" alt=""></li>
+									<li><img src="img/i3.jpg" alt=""></li>
+									<li><img src="img/i4.jpg" alt=""></li>
+									<li><img src="img/i5.jpg" alt=""></li>
+									<li><img src="img/i6.jpg" alt=""></li>
+									<li><img src="img/i7.jpg" alt=""></li>
+									<li><img src="img/i8.jpg" alt=""></li>
+								</ul> -->
+
 								<h6 class="mb-20">have any question?</h6>
 								<ul class="footer-nav">
                             <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> 39,Pwal Sar Street,Kyimyindaing,Yangon</a></li>
                             <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +95 9421099378</a></li>
                             <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> flight with us@gmail.com</a></li>
                         </ul>
+
 							</div>
 						</div>						
 					</div>
@@ -161,8 +211,85 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="{{asset('frontend_asset/js/jquery.ajaxchimp.min.js')}}"></script>
 			<script src="{{asset('frontend_asset/js/jquery.magnific-popup.min.js')}}"></script>						
 			<script src="{{asset('frontend_asset/js/jquery.nice-select.min.js')}}"></script>					
-			<script src="{{asset('frontend_assetjs/owl.carousel.min.js')}}"></script>							
+			<script src="{{asset('frontend_asset/js/owl.carousel.min.js')}}"></script>							
 			<script src="{{asset('frontend_asset/js/mail-script.js')}}"></script>	
-			<script src="{{asset('frontend_asset/js/main.js')}}"></script>	
+			<script src="{{asset('frontend_asset/js/main.js')}}"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					 
+					  $("#paragraph_one").hide();
+                      $("#paragraph_two").hide();
+                      $("#paragraph_three").hide();
+                      $("#paragraph_four").hide();
+                      $("#paragraph_five").hide();
+
+					 $(".submit_change").click(function(){
+   
+                       //input validation
+                      if($("#firstname").val() == ''){
+                          $("#paragraph_one").text("Please Enter your Name**").show();
+                           $("#name").focus();
+                           return false;
+                      }
+                      else if($("#email").val() == ''){
+                           $("#paragraph_two").text("Please Enter your Email**").show();
+                           $("#email").focus();
+                           return false;
+                      }
+                      else if($("#phone").val() == ''){
+                           $("#paragraph_three").text("Please Enter your Phone Number**").show();
+                           $("#phone").focus();
+                           return false;
+                                }
+                      else if($("#passport").val() == ''){
+                           $("#paragraph_four").text("Please Enter your Passport**").show();
+                           $("#passport").focus();
+                           return false;
+                      }
+                      else if($("#date").val() == ''){
+                           $("#paragraph_five").text("Please Enter your Date**").show();
+                           $("#date").focus();
+                           return false;
+                      }
+
+
+                       alert("ok");
+                       var birthdate = $("#birthdate").val();
+                       var firstname = $("#firstname").val();
+                       var secondname = $("#secondname").val();
+                       var email = $("#email").val();
+                       var phone = $("#phone").val();
+                       var passport = $("#passport").val();
+
+
+
+                       var customer={
+                         birthdate : birthdate,
+                         firstname : firstname,
+                         secondname : secondname,
+                         email : email,
+                         phone : phone,
+                         passport : passport
+                       }
+
+                       // console.log(customer);
+
+                       var customerlist = localStorage.getItem("customers");
+                       var customerArray;
+                       if(customerlist==null){
+                         customerArray=[];
+                       }else{
+                         customerArray = JSON.parse(customerlist);
+                       }
+
+                       customerArray.push(customer);
+
+                       customerString = JSON.stringify(customerArray);
+                       localStorage.setItem("customers" , customerString);
+
+                       })
+                    })
+                 </script>
+				
 		</body>
 	</html>
