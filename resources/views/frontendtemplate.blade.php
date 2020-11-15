@@ -61,7 +61,7 @@
 				        <ul class="nav-menu">
 				          <li><a href="#">Home</a></li>
 				          <li><a href="#">About</a></li>					          					          		          
-				          <li><a href="contact.html">Contact</a></li>
+				          <li><a href="#contact">Contact</a></li>
 				        </ul>
 				      </nav><!-- #nav-menu-container -->					      		  
 					</div>
@@ -71,7 +71,7 @@
 			@yield('content')
 			<!-- start footer Area -->		
 			<footer class="footer-area section-gap">
-				<div class="container">
+				<div class="container" id="contact">
 
 					<div class="row">
                <div class="col-12 col-sm-6 col-lg-3">
@@ -123,7 +123,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-3  col-md-6 col-sm-6">
+						<div class="col-lg-3  col-md-6 col-sm-6" id="contact">
 							<div class="single-footer-widget mail-chimp">
 								<h6 class="mb-20">have any question?</h6>
 								<ul class="footer-nav">
