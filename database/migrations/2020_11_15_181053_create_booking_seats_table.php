@@ -15,7 +15,6 @@ class CreateBookingSeatsTable extends Migration
     {
         Schema::create('booking_seats', function (Blueprint $table) {
             $table->id();
-
             $table->unsignedBigInteger('booking_id');
 
             $table->foreign('booking_id')
@@ -30,7 +29,6 @@ class CreateBookingSeatsTable extends Migration
                     ->references('id')
                     ->on('seats')
                     ->onDelete('cascade'); 
-
             $table->timestamps();
         });
     }

@@ -46,6 +46,8 @@ Route::get('signup_page', 'FrontendController@signup')->name('signup_page');
 
 Route::get('register_page', 'FrontendController@register_page')->name('register_page');
 
+Route::get('flightSearch','FrontendController@flightSearch')->name('flightSearch');
+
 
 Auth::routes();
 
