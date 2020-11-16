@@ -7,10 +7,10 @@
 				<div class="container pt-5">
 					<div class="row fullscreen align-items-center justify-content-between">
 						<div class="col-lg-6 col-md-6 banner-left">
-							<h6 class="text-white">Away from monotonous life</h6>
-							<h1 class="text-white">Magical Travel</h1>
+							<h6 class="text-white">Fly with Us</h6>
+							
 							<p class="text-white">
-								If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $.17 each.
+								If you are looking at blank cassettes on the web, you may be very confused at the difference in price. 
 							</p>
 							<a href="#" class="primary-btn text-uppercase">Get Started</a>
 						</div>
@@ -26,31 +26,31 @@
 							</ul>
 							<div class="tab-content" id="myTabContent">
 							  <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
-								<form class="form-wrap">
+								<form class="form-wrap" action="{{route('flightSearch')}}" method="POST" >
+								@csrf	
 
                              
-									<select class="form-control" >
+									<select class="form-control" name="Fromcity">
 										<option> From city </option>
 										@foreach($cities as $city)
-										<option> {{$city->name}} </option>
+										<option value="{{$city->id}}"> {{$city->name}} </option>
 									    @endforeach
 									</select>
 
-									<select class="form-control" >
+									<select class="form-control" name="Tocity" >
 										<option> To city </option>
 										@foreach($cities as $city)
-										<option> {{$city->name}} </option>
+										<option value="{{$city->id}}"> {{$city->name}} </option>
 									    @endforeach
 									</select>
 
-									<input type="text" class="form-control date-picker" name="start" placeholder="Departure " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+									<input type="date" class="form-control " name="start" placeholder="Departure " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
 
 									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
 
                            <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
                             <div class="form-group">
-                              <select class="form-control" name="">
-                                   
+                              <select class="form-control" name="class">
                                           <option>Seat Class</option>
                                        @foreach($classes as $class)
                                           <option>{{$class->name}}</option>
@@ -58,39 +58,38 @@
 
                               </select>
                             </div>							
-									<a href="{{route('flightSearch')}}" class="primary-btn text-uppercase">Search flights</a>									
-								</form>
+									<input type="submit" value="searchFlight">
+							</form>
 							  </div>
 							   
 							  <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
-								<form class="form-wrap">
-                        <select class="form-control" >
+							  <form class="form-wrap" action="{{route('flightSearch')}}" method="POST" >
+								@csrf	
+                                   <select class="form-control" name="Fromcity" >
 										<option> From city </option>
 										@foreach($cities as $city)
-										<option> {{$city->name}} </option>
+										<option value="{{$city->id}}"> {{$city->name}} </option>
 									    @endforeach
 									</select>
 
-									<select class="form-control" >
+									<select class="form-control" name="Tocity">
 										<option> To city </option>
 										@foreach($cities as $city)
-										<option> {{$city->name}} </option>
+										<option value="{{$city->id}}"> {{$city->name}} </option>
 									    @endforeach
 									</select>
 
-									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
-									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+									<input type="date" class="form-control " name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+									<input type="date" class="form-control " name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
 									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-                           <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
-                           <select class="form-control" name="">
-                                      <option>Seat Class</option>
-                                       @foreach($classes as $class)
-                                          <option>{{$class->name}}</option>
-                                       @endforeach
-
-
-                           </select>						
-									<a href="{{route('flightSearch')}}" class="primary-btn text-uppercase">Search Flights</a>									
+                           			<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+									<select class="form-control" name="class">
+												<option>Seat Class</option>
+												@foreach($classes as $class)
+													<option>{{$class->name}}</option>
+												@endforeach
+									</select>						
+									<input type="submit" value="searchFlight" >	
 								</form>							  	
 							  </div>
 							</div>
@@ -119,9 +118,9 @@
 									<img class="img-fluid" src="{{asset('frontend_asset/img/kbz.png')}}" alt="">
 								</div>
 								<div class="desc">	
-									<a href="#" class="price-btn">$150</a>			
-									<h4>Mountain River</h4>
-									<p>Paraguay</p>			
+									<a href="#" class="price-btn">about</a>			
+									<h4>Air KBZ</h4>
+											
 								</div>
 							</div>
 						</div>
@@ -132,9 +131,9 @@
 									<img class="img-fluid" src="{{asset('frontend_asset/img/goldenmyanmar.jpg')}}" alt="">
 								</div>
 								<div class="desc">	
-									<a href="#" class="price-btn">$250</a>			
-									<h4>Dream City</h4>
-									<p>Paris</p>			
+									<a href="#" class="price-btn">about</a>			
+									<h4>Golden Myanmar</h4>
+											
 								</div>
 							</div>
 						</div>
@@ -145,9 +144,9 @@
 									<img class="img-fluid" src="{{asset('frontend_asset/img/mmair.jpg')}}" alt="">
 								</div>
 								<div class="desc">	
-									<a href="#" class="price-btn">$350</a>			
-									<h4>Cloud Mountain</h4>
-									<p>Sri Lanka</p>			
+									<a href="#" class="price-btn">about</a>			
+									<h4>Myanmar National AirLine</h4>
+											
 								</div>
 							</div>
 						</div>												
