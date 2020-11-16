@@ -62,9 +62,43 @@
 								</form>
 							  </div>
 							   
+							  <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
+								<form class="form-wrap">
+                        <select class="form-control" >
+										<option> From city </option>
+										@foreach($cities as $city)
+										<option> {{$city->name}} </option>
+									    @endforeach
+									</select>
+
+									<select class="form-control" >
+										<option> To city </option>
+										@foreach($cities as $city)
+										<option> {{$city->name}} </option>
+									    @endforeach
+									</select>
+
+									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
+                           <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                           <select class="form-control" name="">
+                                      <option>Seat Class</option>
+                                       @foreach($classes as $class)
+                                          <option>{{$class->name}}</option>
+                                       @endforeach
 
 
-			
+                           </select>						
+									<a href="{{route('flightSearch')}}" class="primary-btn text-uppercase">Search Flights</a>									
+								</form>							  	
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>					
+			</section>
+			<!-- End banner Area -->
 
 			<!-- Start popular-destination Area -->
 			<section class="popular-destination-area section-gap">
