@@ -73,7 +73,7 @@
 								</form>
 							  </div>
 							   
-							  <!-- <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
+							 <!--  <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
 								<form class="form-wrap">
 									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
 									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">

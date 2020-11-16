@@ -15,8 +15,7 @@ class CreateRoutesTable extends Migration
     {
         Schema::create('routes', function (Blueprint $table) {
             $table->id();
-           // $table->string('From_city_id');
-           // $table->string('To_city_id');
+
             $table->string('price');
 
             $table->unsignedBigInteger('From_city_id');
@@ -30,7 +29,6 @@ class CreateRoutesTable extends Migration
             ->references('id')
             ->on('cities')
             ->onDelete('cascade');
-
             $table->timestamps();
         });
     }

@@ -37,6 +37,8 @@ Route::resource('booking_seat', 'BookingSeatController');
 
 Route::resource('city', 'CityController');
 
+Route::resource('user', 'UserController');
+
 //Frontend template
 Route::get('/', 'FrontendController@home')->name('mainpage');
 

@@ -17,20 +17,17 @@ class CreateBookingSeatsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('booking_id');
-
             $table->foreign('booking_id')
-                    ->references('id')
-                    ->on('bookings')
-                    ->onDelete('cascade'); 
-
+            ->references('id')
+            ->on('bookings')
+            ->onDelete('cascade');
 
             $table->unsignedBigInteger('seat_id');
-
             $table->foreign('seat_id')
-                    ->references('id')
-                    ->on('seats')
-                    ->onDelete('cascade'); 
-
+            ->references('id')
+            ->on('seats')
+            ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@
 
 		<div class="row justify-content-center">
 			<div class="col-8">
-				 <form method="POST" action="">
+				 <form method="POST" action="{{route('user.store')}}">
                         @csrf
 
                         <div class="form-group row">
