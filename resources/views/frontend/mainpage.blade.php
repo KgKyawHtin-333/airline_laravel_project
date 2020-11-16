@@ -43,53 +43,28 @@
 									    @endforeach
 									</select>
 
-									<input type="date" class="form-control date-picker" name="start" placeholder="Departure " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
-
-									<input type="date" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-
-
-                              
-									
+									<input type="text" class="form-control date-picker" name="start" placeholder="Departure " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
 
 									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
 
                            <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
                             <div class="form-group">
                               <select class="form-control" name="">
-
+                                   
                                           <option>Seat Class</option>
-                                          <option>Economic Class</option>
-                                          <option>Business Class</option>
-                                         
-
-                                          <option>Seat</option>
-                                          <option>Option 1</option>
-                                          <option>Option 2</option>
-                                          <option>Option 3</option>
+                                       @foreach($classes as $class)
+                                          <option>{{$class->name}}</option>
+                                       @endforeach
 
                               </select>
                             </div>							
-									<a href="#" class="primary-btn text-uppercase">Search flights</a>									
+									<a href="{{route('flightSearch')}}" class="primary-btn text-uppercase">Search flights</a>									
 								</form>
 							  </div>
 							   
-							 <!--  <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
-								<form class="form-wrap">
-									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
-									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
-									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
-									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">							
-									<a href="#" class="primary-btn text-uppercase">Search Holidays</a>									
-								</form>							  	
-							  </div> -->
-							</div>
-						</div>
-					</div>
-				</div>					
-			</section>
-			<!-- End banner Area -->
+
+
+			
 
 			<!-- Start popular-destination Area -->
 			<section class="popular-destination-area section-gap">
