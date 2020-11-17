@@ -36,7 +36,7 @@
                 <td> {{$i++}}  </td>
                 <td>{{$route->fromCity->name}}</td>
                 <td> {{$route->toCity->name}}   </td>
-                <td> {{$route->price}}   </td>
+                <td> {{$route->price}}</td>
                 
                 <td> 
                   <a href="{{route('route.edit',$route->id)}}" class="btn btn-success">Edit</a>

@@ -16,19 +16,19 @@ class AirLineSeeder extends Seeder
             'name'=>'Air KBZ',
              'address'=>'Yangon',
              'phone_no'=>'09773245631',
-             'photo'=>'flight/1.jpg'
+             'photo'=>'/storage/airline/airkbz.png'
         ]);
         Airline::create([
             'name'=>'Myanmar National AirLine',
              'address'=>'Yangon',
              'phone_no'=>'0987654321',
-             'photo'=>'flight/2.jpg'
+             'photo'=>'/storage/airline/mmairline.png'
         ]);
         Airline::create([
             'name'=>'Golden Myanmar AirLine',
              'address'=>'Yangon',
              'phone_no'=>'09778908765',
-             'photo'=>'flight/3.jpg'
+             'photo'=>'/storage/airline/golden.png'
         ]);
     }
 }
