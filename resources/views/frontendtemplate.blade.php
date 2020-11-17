@@ -232,116 +232,112 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 				// 	 $(".submit_change").click(function(){
    
-                //        //input validation
-                //       if($("#firstname").val() == ''){
-                //           $("#paragraph_one").text("Please Enter your Name**").show();
-                //            $("#name").focus();
-                //            return false;
-                //       }
-                //       else if($("#email").val() == ''){
-                //            $("#paragraph_two").text("Please Enter your Email**").show();
-                //            $("#email").focus();
-                //            return false;
-                //       }
-                //       else if($("#phone").val() == ''){
-                //            $("#paragraph_three").text("Please Enter your Phone Number**").show();
-                //            $("#phone").focus();
-                //            return false;
-                //                 }
-                //       else if($("#passport").val() == ''){
-                //            $("#paragraph_four").text("Please Enter your Passport**").show();
-                //            $("#passport").focus();
-                //            return false;
-                //       }
-                //       else if($("#date").val() == ''){
-                //            $("#paragraph_five").text("Please Enter your Date**").show();
-                //            $("#date").focus();
-                //            return false;
-                //       }
+
+                       //input validation
+                      // if($("#firstname").val() == ''){
+                      //     $("#paragraph_one").text("Please Enter your Name**").show();
+                      //      $("#name").focus();
+                      //      return false;
+                      // }
+                      // else if($("#email").val() == ''){
+                      //      $("#paragraph_two").text("Please Enter your Email**").show();
+                      //      $("#email").focus();
+                      //      return false;
+                      // }
+                      // else if($("#phone").val() == ''){
+                      //      $("#paragraph_three").text("Please Enter your Phone Number**").show();
+                      //      $("#phone").focus();
+                      //      return false;
+                      //           }
+                      // else if($("#passport").val() == ''){
+                      //      $("#paragraph_four").text("Please Enter your Passport**").show();
+                      //      $("#passport").focus();
+                      //      return false;
+                      // }
+                      // else if($("#date").val() == ''){
+                      //      $("#paragraph_five").text("Please Enter your Date**").show();
+                      //      $("#date").focus();
+                      //      return false;
+                      // }
 
 
-                //        // alert("ok");
-                //        var birthdate = $("#birthdate").val();
-                //        var firstname = $("#firstname").val();
-                //        var secondname = $("#secondname").val();
-                //        var email = $("#email").val();
-                //        var phone = $("#phone").val();
-                //        var passport = $("#passport").val();
+                      //  // alert("ok");
+                      //  var birthdate = $("#birthdate").val();
+                      //  var firstname = $("#firstname").val();
+                      //  var secondname = $("#secondname").val();
+                      //  var email = $("#email").val();
+                      //  var phone = $("#phone").val();
+                      //  var passport = $("#passport").val();
 
 
 
-                //        var customer={
-                //          birthdate : birthdate,
-                //          firstname : firstname,
-                //          secondname : secondname,
-                //          email : email,
-                //          phone : phone,
-                //          passport : passport
-                //        }
+                      //  var customer={
+                      //    birthdate : birthdate,
+                      //    firstname : firstname,
+                      //    secondname : secondname,
+                      //    email : email,
+                      //    phone : phone,
+                      //    passport : passport
+                      //  }
 
-                //        // console.log(customer);
+                       // console.log(customer);
 
-                //        var customerlist = localStorage.getItem("customers");
-                //        var customerArray;
-                //        if(customerlist==null){
-                //          customerArray=[];
-                //        }else{
-                //          customerArray = JSON.parse(customerlist);
-                //        }
+     //                   var customerlist = localStorage.getItem("customers");
+     //                   var customerArray;
+     //                   if(customerlist==null){
+     //                     customerArray=[];
+     //                   }else{
+     //                     customerArray = JSON.parse(customerlist);
+     //                   }
 
-                //        customerArray.push(customer);
+     //                   customerArray.push(customer);
 
-                //        customerString = JSON.stringify(customerArray);
-                //        localStorage.setItem("customers" , customerString);
+     //                   customerString = JSON.stringify(customerArray);
+     //                   localStorage.setItem("customers" , customerString);
 
-                //        })
+     //                   })
 
-                //            $('.checkout').click(function () {    
+					// })
 
-                //             alert('ok');
+                  //          $('.checkout').click(function () {    
+
+                  //           alert('ok');
              
-			    //            var price=$(this).data('price');
-			    //            var route=$(this).data("route");
-			    //            var time=$(this).data("time");
-			    //            var flight=$(this).data("flight");
+			               // var schedule_id=$(this).data('id');
+			              
 
-			    //            var item={
-			    //            	price:price,
-			    //            	route:route,
-			    //            	time:time,
-			    //            	flight:flight
-			    //            }
+			               // var item={
+			               // 	schedule_id:schedule_id
+			               // }
 
-			    //             var itemlist=localStorage.getItem("items");
+			               //  var itemlist=localStorage.getItem("items");
 
-			    //             var ItemArray;
-			    //             if(itemlist==null){
-			    //             	ItemArray=[];
-			    //             }else{
-			    //             	ItemArray=JSON.parse(itemlist);
-			    //             }
+			               //  var ItemArray;
+			               //  if(itemlist==null){
+			               //  	ItemArray=[];
+			               //  }else{
+			               //  	ItemArray=JSON.parse(itemlist);
+			               //  }
 			
 
 			
-			    //             ItemArray.push(item);	
+			               //  ItemArray.push(item);	
 			
-			    //             var itemstring=JSON.stringify(ItemArray);
-			    //             localStorage.setItem("items", itemstring);
-			    //             // showdata();
-			    //             // count();
+			               //  var itemstring=JSON.stringify(ItemArray);
+			               //  localStorage.setItem("items", itemstring);
+			                // showdata();
+			                // count();
 
-			    //              let booking = localStorage.getItem('items'); // JSON String
-                //            $.post("{{route('booking.store')}}",{booking:booking},function (response) {
-                //             console.log(response);
-                //             // localStorage.clear();
-                //             location.href="/";
-                //           });
+			                 // let booking = localStorage.getItem('items'); // JSON String
+                    //        $.post("{{route('booking.store')}}",{booking:booking},function (response) {
+                    //         console.log(response);
+                    //         // localStorage.clear();
+                    //         // location.href="/";
+                          // });
 		                          
-		        //         })
+		                // })
 
                           
-
-				// });
 
                        
             

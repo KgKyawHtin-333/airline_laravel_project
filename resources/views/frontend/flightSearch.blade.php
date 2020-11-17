@@ -5,6 +5,7 @@
 <section class="banner-area relative">
 				<div class="overlay overlay-bg"></div>				
 				<div class="container">
+
 					<div class="row fullscreen align-items-center justify-content-between">
                        
 						<div class="col-md-12">
@@ -32,11 +33,11 @@
                                 </div>
                                 @endforeach
 				        </div>
-                           
-                        </div>
                     </div>
                 </div>
-                				
+                           
+
+                             
 </section>
 			<!-- End banner Area -->
 
