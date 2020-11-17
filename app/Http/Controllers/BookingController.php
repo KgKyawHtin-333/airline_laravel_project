@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Booking;
+use App\Schedule;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -112,5 +113,15 @@ class BookingController extends Controller
     public function destroy(Booking $booking)
     {
         //
+    }
+
+    public function previewBooking(){
+        return view('frontend.userbookingPreview');
+    }
+
+    public function getScheduleUser($id){
+        $data=Schedule::with(['route','route.fromCity','route.toCity','time','flight','flight.airline'])
+                ->findorFail($id);
+        return $data;
     }
 }

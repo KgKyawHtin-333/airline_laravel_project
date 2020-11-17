@@ -216,22 +216,23 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="{{asset('frontend_asset/js/mail-script.js')}}"></script>	
 			<script src="{{asset('frontend_asset/js/main.js')}}"></script>
 			<script type="text/javascript">
-				$(document).ready(function(){
+				// $(document).ready(function(){
 
-					  $.ajaxSetup({
-                      headers: {
-                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                         }
-                      });
+				// 	  $.ajaxSetup({
+                //       headers: {
+                //       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                //          }
+                //       });
 					 
-					  $("#paragraph_one").hide();
-                      $("#paragraph_two").hide();
-                      $("#paragraph_three").hide();
-                      $("#paragraph_four").hide();
-                      $("#paragraph_five").hide();
+				// 	  $("#paragraph_one").hide();
+                //       $("#paragraph_two").hide();
+                //       $("#paragraph_three").hide();
+                //       $("#paragraph_four").hide();
+                //       $("#paragraph_five").hide();
 
-					 $(".submit_change").click(function(){
+				// 	 $(".submit_change").click(function(){
    
+
                        //input validation
                       if($("#firstname").val() == ''){
                           $("#paragraph_one").text("Please Enter your Name**").show();
@@ -281,22 +282,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
                        // console.log(customer);
 
-                       var customerlist = localStorage.getItem("customers");
-                       var customerArray;
-                       if(customerlist==null){
-                         customerArray=[];
-                       }else{
-                         customerArray = JSON.parse(customerlist);
-                       }
+     //                   var customerlist = localStorage.getItem("customers");
+     //                   var customerArray;
+     //                   if(customerlist==null){
+     //                     customerArray=[];
+     //                   }else{
+     //                     customerArray = JSON.parse(customerlist);
+     //                   }
 
-                       customerArray.push(customer);
+     //                   customerArray.push(customer);
 
-                       customerString = JSON.stringify(customerArray);
-                       localStorage.setItem("customers" , customerString);
+     //                   customerString = JSON.stringify(customerArray);
+     //                   localStorage.setItem("customers" , customerString);
 
-                       })
+     //                   })
 
-					})
+					// })
 
                   //          $('.checkout').click(function () {    
 
@@ -338,8 +339,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
                           
 
-				
-
                        
             
         
@@ -350,6 +349,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
               
              
   </script>
+  @yield('script')
 				
 </body>
 </html>
