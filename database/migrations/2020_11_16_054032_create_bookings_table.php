@@ -17,7 +17,7 @@ class CreateBookingsTable extends Migration
             $table->id();
 
             
-      $table->string('total_price');
+            $table->string('total_price');
             $table->string('total_passenger');
 
             $table->unsignedBigInteger('user_id');
@@ -34,15 +34,15 @@ class CreateBookingsTable extends Migration
 
             $table->unsignedBigInteger('airline_id');
             $table->foreign('airline_id')
-            ->references('id')
-            ->on('airlines')
-            ->onDelete('cascade');
+                  ->references('id')
+                  ->on('airlines')
+                  ->onDelete('cascade');
 
             $table->unsignedBigInteger('seat_id');
             $table->foreign('seat_id')
-            ->references('id')
-            ->on('seats')
-            ->onDelete('cascade');
+                  ->references('id')
+                  ->on('seats')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }

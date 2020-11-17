@@ -36,6 +36,37 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request);
+
+        // validation
+
+        // data store
+        $mybooking = json_decode($request->booking);
+        $schedule = $mybooking->id;
+        $orderdate = date('Y-m-d');
+        $totalamount = 0;
+        $totalpassenger = 0;
+        foreach ($mybooking as $row) {
+            $totalamount += $row->total_price;
+            $totalpassenger += $row->total_passenger;
+        }
+        $booking = new Booking;
+       
+        $booking->schedule_id = $schedule;
+        $booking->total_price = $totalamount;
+        $booking->total_passenger = $totalpassenger;
+        $booking->user_id = Auth::id(); // current logined user_id
+        $booking->save();
+        /*  [
+                {"id":1,"name":"item one","photo":"path","price":5000,"qty":3},
+                {"id":2,"name":"item one","photo":"path","price":6000,"qty":1}
+            ]
+        */
+        foreach ($mybooking as $row) { 
+            $booking->schedules()->attach($row->id);
+        }
+
+        return 'Successful Order';
     }
 
     /**

@@ -61,7 +61,7 @@
 
   			</div>
 
-   			<a href="" class="btn btn-success submit_change float-right" style="padding-left: 30px;padding-right: 30px; font-size: 20px;" type="submit"> Submit </a>
+   			<a href="" class="btn btn-success submit_change float-right mb-5" style="padding-left: 30px;padding-right: 30px; font-size: 20px;" type="submit"> Submit </a>
    		    
    		    </form>
    			
