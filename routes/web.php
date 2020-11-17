@@ -48,7 +48,10 @@ Route::get('signup_page', 'FrontendController@signup')->name('signup_page');
 
 Route::get('register_page', 'FrontendController@register_page')->name('register_page');
 
+// for only one way
 Route::post('flightSearch','FrontendController@flightSearch')->name('flightSearch');
+//for roundtrip seach
+Route::post('flightSearchRound','FrontendController@flightSearchR')->name('flightSearchR');
 
 
 Auth::routes();

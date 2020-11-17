@@ -15,6 +15,7 @@
 		let sid=varArr.toschedule;
 		// console.log(sid);
 		$.get(`/getScheduleUser/${sid}`,function(res){
+			console.log(res);
 			$('#airlinename').html(res.flight.airline.name);
 		})
 	})

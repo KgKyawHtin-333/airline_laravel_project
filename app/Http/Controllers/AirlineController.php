@@ -25,7 +25,7 @@ class AirlineController extends Controller
      */
     public function create()
     {
-        //
+        return view('airline.create');
     }
 
     /**
@@ -35,8 +35,28 @@ class AirlineController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        dd($request);
+        $request->validate([
+            "name"=>"required|min:3",
+            "address"=>"required",
+            "phoneno"=>"required",
+            "photo"=>"required|mimes:jpeg,bmp,png,jpg"
+        ]);
+
+        if($request->file()){
+            $fileName=time().'_'.$request->photo->getClientOriginalName();
+            $filePath=$request->file('photo')->storeAs('airline',$fileName,'public');
+            $path='/storage/'.$filePath;
+        }
+        $airline=new Airline;
+        $airline->name=$request->name;
+        $airline->address=$request->address;
+        $airline->phoneno=$request->phoneno;
+        $airline->photo=$path;
+        $airline->save();
+
+        return redirect()->route('airline.index');
     }
 
     /**
@@ -81,6 +101,7 @@ class AirlineController extends Controller
      */
     public function destroy(Airline $airline)
     {
-        //
+        $airline->delete();
+        return back();
     }
 }
