@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
@@ -216,6 +217,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			<script src="{{asset('frontend_asset/js/main.js')}}"></script>
 			<script type="text/javascript">
 				$(document).ready(function(){
+
+					  $.ajaxSetup({
+                      headers: {
+                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                         }
+                      });
 					 
 					  $("#paragraph_one").hide();
                       $("#paragraph_two").hide();
@@ -253,7 +260,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                       }
 
 
-                       alert("ok");
+                       // alert("ok");
                        var birthdate = $("#birthdate").val();
                        var firstname = $("#firstname").val();
                        var secondname = $("#secondname").val();
@@ -289,20 +296,63 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
                        })
 
-                        $('.checkout').click(function () {                
-        
-                          
-                          let booking = localStorage.getItem('items'); // JSON String
-                          $.post("{{route('booking.store')}}",{booking:booking},function (response) {
+                           $('.checkout').click(function () {    
+
+                            alert('ok');
+             
+			               var price=$(this).data('price');
+			               var route=$(this).data("route");
+			               var time=$(this).data("time");
+			               var flight=$(this).data("flight");
+
+			               var item={
+			               	price:price,
+			               	route:route,
+			               	time:time,
+			               	flight:flight
+			               }
+
+			                var itemlist=localStorage.getItem("items");
+
+			                var ItemArray;
+			                if(itemlist==null){
+			                	ItemArray=[];
+			                }else{
+			                	ItemArray=JSON.parse(itemlist);
+			                }
+			
+
+			
+			                ItemArray.push(item);	
+			
+			                var itemstring=JSON.stringify(ItemArray);
+			                localStorage.setItem("items", itemstring);
+			                // showdata();
+			                // count();
+
+			                 let booking = localStorage.getItem('items'); // JSON String
+                           $.post("{{route('booking.store')}}",{booking:booking},function (response) {
                             console.log(response);
                             // localStorage.clear();
                             location.href="/";
                           });
-                       });
+		                          
+		                })
 
+                          
 
-                    })
-                 </script>
+				});
+
+                       
+            
+        
+                          
+                        
+
+                    
+              
+             
+  </script>
 				
-		</body>
-	</html>
+</body>
+</html>

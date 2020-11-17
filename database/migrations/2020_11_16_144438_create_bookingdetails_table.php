@@ -23,12 +23,12 @@ class CreateBookingdetailsTable extends Migration
                     ->on('bookings')
                     ->onDelete('cascade');
 
-            $table->unsignedBigInteger('schedule_id');
+            // $table->unsignedBigInteger('schedule_id');
 
-            $table->foreign('schedule_id')
-                    ->references('id')
-                    ->on('schedules')
-                    ->onDelete('cascade');
+            // $table->foreign('schedule_id')
+            //         ->references('id')
+            //         ->on('schedules')
+            //         ->onDelete('cascade');
 
             $table->timestamps();
         });
