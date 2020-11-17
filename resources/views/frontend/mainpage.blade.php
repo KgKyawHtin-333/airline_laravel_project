@@ -86,7 +86,7 @@
 									<select class="form-control" name="class_seats" id="class_seats">
 												<option>Seat Class</option>
 												@foreach($classes as $class)
-													<option value="{{$class->id}}" data-id="{{$class->id}}">{{$class->name}}</option>
+													<option value="{{$class->id}}">{{$class->name}}</option>
 												@endforeach
 									</select>						
 									<input type="submit" value="searchFlight" >	

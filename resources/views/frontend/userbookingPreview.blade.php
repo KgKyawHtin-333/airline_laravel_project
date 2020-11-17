@@ -15,12 +15,7 @@
   			      <h2> Traveller Details </h2>
   		        </div>
 
-  				<div class="card-body">
-
-  					
-
-  				
-  				  
+  				<div class="card-body"> 
        				<div class="form-group">
   						<label for="firstname"> First Name </label>
   						<input type="text" name="firstname" id="firstname" class="form-control" required="">
@@ -89,7 +84,7 @@
   						<hr>
   						<h5 id="airlinename">  </h5>
   						<hr>
-  						<p id="classname"> Class Name</p>
+  						<p id="classname">Class Name</p>
   						<hr>
   						<h5>Adult - <span id="adult"></span></h5>
   						<h5>Child - <span id="child"></span></h5>
@@ -123,9 +118,12 @@
 	$(document).ready(function(){
 		let var1=localStorage.getItem('people');
 		let varArr=JSON.parse(var1);
+
 		    $('#classname').html(varArr.class_seats);
 		    $('#adult').html(varArr.adults);
 		    $('#child').html(varArr.child);
+
+
 		let sid=varArr.toschedule;
 		// console.log(sid);
 		$.get(`/getScheduleUser/${sid}`,function(res){
