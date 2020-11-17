@@ -31,6 +31,7 @@ class FrontendController extends Controller
     	return view('frontend.register_page');
     }
     public function flightSearch(Request $request,City $city){
+      
         //dd($request);
         $From_city =$request->Fromcity;
         $To_city=$request->Tocity;

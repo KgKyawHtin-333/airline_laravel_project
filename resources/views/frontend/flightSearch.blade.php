@@ -22,7 +22,7 @@
                                  <span>{{$d->route->price}}</span>
                              </div>
                              <div class="col-md-3">
-                                 <input type="submit" value="choose">
+                                 <button class="btn-outline-success checkout" data-price="{{$d->route->price}}" data-route="{{$d->route_id}}" data-time="{{$d->time_id}}" data-flight="{{$d->flight_id}}"> Choose </button>
                              </div>
                         @endforeach
                         <br><br>
