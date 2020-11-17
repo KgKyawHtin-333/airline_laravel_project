@@ -5,6 +5,7 @@
 <section class="banner-area relative">
 				<div class="overlay overlay-bg"></div>				
 				<div class="container">
+
 					<div class="row fullscreen align-items-center justify-content-between">
                         @foreach($data as $d)
 						<div class="col-md-12">
@@ -22,10 +23,11 @@
                                  <span>{{$d->route->price}}</span>
                              </div>
                              <div class="col-md-3">
-                                 <button class="btn-outline-success checkout" data-price="{{$d->route->price}}" data-route="{{$d->route_id}}" data-time="{{$d->time_id}}" data-flight="{{$d->flight_id}}"> Choose </button>
+                                 <button class="btn-success checkout" data-id="{{$d->id}}"> Choose </button>
                              </div>
                         @endforeach
                         <br><br>
+					}
 				</div>
                 				
 			</section>

@@ -296,52 +296,49 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
                        })
 
-                           $('.checkout').click(function () {    
+					})
 
-                            alert('ok');
+                  //          $('.checkout').click(function () {    
+
+                  //           alert('ok');
              
-			               var price=$(this).data('price');
-			               var route=$(this).data("route");
-			               var time=$(this).data("time");
-			               var flight=$(this).data("flight");
+			               // var schedule_id=$(this).data('id');
+			              
 
-			               var item={
-			               	price:price,
-			               	route:route,
-			               	time:time,
-			               	flight:flight
-			               }
+			               // var item={
+			               // 	schedule_id:schedule_id
+			               // }
 
-			                var itemlist=localStorage.getItem("items");
+			               //  var itemlist=localStorage.getItem("items");
 
-			                var ItemArray;
-			                if(itemlist==null){
-			                	ItemArray=[];
-			                }else{
-			                	ItemArray=JSON.parse(itemlist);
-			                }
+			               //  var ItemArray;
+			               //  if(itemlist==null){
+			               //  	ItemArray=[];
+			               //  }else{
+			               //  	ItemArray=JSON.parse(itemlist);
+			               //  }
 			
 
 			
-			                ItemArray.push(item);	
+			               //  ItemArray.push(item);	
 			
-			                var itemstring=JSON.stringify(ItemArray);
-			                localStorage.setItem("items", itemstring);
+			               //  var itemstring=JSON.stringify(ItemArray);
+			               //  localStorage.setItem("items", itemstring);
 			                // showdata();
 			                // count();
 
-			                 let booking = localStorage.getItem('items'); // JSON String
-                           $.post("{{route('booking.store')}}",{booking:booking},function (response) {
-                            console.log(response);
-                            // localStorage.clear();
-                            location.href="/";
-                          });
+			                 // let booking = localStorage.getItem('items'); // JSON String
+                    //        $.post("{{route('booking.store')}}",{booking:booking},function (response) {
+                    //         console.log(response);
+                    //         // localStorage.clear();
+                    //         // location.href="/";
+                          // });
 		                          
-		                })
+		                // })
 
                           
 
-				});
+				
 
                        
             
