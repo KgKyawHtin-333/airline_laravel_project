@@ -288,6 +288,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                        localStorage.setItem("customers" , customerString);
 
                        })
+
+                        $('.checkout').click(function () {                
+        
+                          
+                          let booking = localStorage.getItem('items'); // JSON String
+                          $.post("{{route('booking.store')}}",{booking:booking},function (response) {
+                            console.log(response);
+                            // localStorage.clear();
+                            location.href="/";
+                          });
+                       });
+
+
                     })
                  </script>
 				

@@ -21,5 +21,10 @@ class Schedule extends Model
     public function airline(){
         return $this->belongsTo('App\Airline');
     }
+
+    public function bookings()
+    {
+       return $this->belongsToMany('App\Booking', 'bookingdetails');
+    }
     
 }
