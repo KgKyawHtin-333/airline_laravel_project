@@ -54,3 +54,9 @@ Route::post('flightSearch','FrontendController@flightSearch')->name('flightSearc
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// for frontend booking preview
+Route::get('/prevbook', 'BookingController@previewBooking')->name('prevbook');
+//for user to show schedule booking with ajax
+Route::get('/getScheduleUser/{id}','BookingController@getScheduleUser')->name('getScheduleUser');
+
