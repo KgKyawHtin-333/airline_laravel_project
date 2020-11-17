@@ -72,6 +72,7 @@
   		<div class="offset-md-2"></div>
 
   		<div class="col-md-4 my-5">
+  			<form action="" method="">
   			<div class="card">
   				<div class="card-header">
   					<h2> Booking Details </h2>
@@ -90,6 +91,8 @@
   						<hr>
   						<p id="classname"> Class Name</p>
   						<hr>
+  						<h5>Adult - <span id="adult"></span></h5>
+  						<h5>Child - <span id="child"></span></h5>
   					</div>
   				</div>
   				<div class="card-footer">
@@ -98,6 +101,8 @@
   					</div>
   				</div>
   			</div>
+  			 <button type="submit" class="btn btn-success booking float-right my-3" > Booking </button>
+  		</form>
   		</div>
   	</div>
   </div>
@@ -108,10 +113,19 @@
 @section('script')
 
 <script type="text/javascript">
+    
+      $.ajaxSetup({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+      });
+
 	$(document).ready(function(){
 		let var1=localStorage.getItem('people');
 		let varArr=JSON.parse(var1);
 		    $('#classname').html(varArr.class_seats);
+		    $('#adult').html(varArr.adults);
+		    $('#child').html(varArr.child);
 		let sid=varArr.toschedule;
 		// console.log(sid);
 		$.get(`/getScheduleUser/${sid}`,function(res){
@@ -124,6 +138,17 @@
 			$('#totalprice').html(res.route.price);
 			
 		})
+
+		$('.booking').click(function (event) {
+          event.preventDefault();
+          alert('ok');
+          let booking = localStorage.getItem('people'); // JSON String
+          $.post("{{route('booking.store')}}",{booking:booking},function (response) {
+            console.log(response);
+            // localStorage.clear();
+            // location.href="/";
+          });
+      });
 	})
 </script>
 

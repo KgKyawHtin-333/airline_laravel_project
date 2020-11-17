@@ -37,19 +37,19 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request);
+        // dd($request);
 
         // validation
 
         // data store
         $mybooking = json_decode($request->booking);
-        $schedule = $mybooking->id;
+        $schedule = $mybooking->toschedule;
         $orderdate = date('Y-m-d');
         $totalamount = 0;
         $totalpassenger = 0;
         foreach ($mybooking as $row) {
-            $totalamount += $row->total_price;
-            $totalpassenger += $row->total_passenger;
+            $totalamount += $row->price;
+            $totalpassenger += $row->adult;
         }
         $booking = new Booking;
        

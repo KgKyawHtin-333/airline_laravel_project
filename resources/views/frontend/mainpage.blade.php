@@ -52,7 +52,7 @@
                               <select class="form-control" name="class" id="class">
                                           <option>Seat Class</option>
                                        @foreach($classes as $class)
-                                          <option value="{{$class->id}}" data-id="{{$class->id}}">{{$class->name}}</option>
+                                          <option value="{{$class->id}}" data-id="{{$class->id}}" data-price="{{$class->price}}">{{$class->name}}</option>
                                        @endforeach
 
                               </select>
@@ -168,8 +168,9 @@
 			let adults=$('#adults').val();
 			let child =$('#child').val();
 			let type=$('#searchFlightForm input[name="type"]').val();
-			let class_seats =$('select[name=class] option').filter(':selected').val()
-			//alert(class_seats);
+			let class_seats =$('select[name=class] option').filter(':selected').val();
+			let seat_price=$('option:selected', '#searchFlightForm select[name="class"]').data('price');
+			// alert(seat_price);
 
 			let passenger={
 				adults:adults,
@@ -178,6 +179,7 @@
 				class_seats:class_seats,
 				toschedule:0,
 				fromschedule:0,
+				seat_price:seat_price
 			}
 			//console.log(passenger);
 			// let passenger_list=localStorage.getItem("people");
@@ -193,7 +195,7 @@
  		       localStorage.setItem("people",passenger_string);
 
 			
-			e.currentTarget.submit();
+			 e.currentTarget.submit();
 			
 			
 		})
