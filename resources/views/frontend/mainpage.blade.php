@@ -52,7 +52,7 @@
                               <select class="form-control" name="class" id="class">
                                           <option>Seat Class</option>
                                        @foreach($classes as $class)
-                                          <option value="{{$class->id}}" data-id="{{$class->id}}">{{$class->name}}</option>
+                                          <option value="{{$class->id}}" data-id="{{$class->id}}" data-name="{{$class->name}}" data-price="{{$class->price}}">{{$class->name}}</option>
                                        @endforeach
 
                               </select>
@@ -86,7 +86,7 @@
 									<select class="form-control" name="class_seats" id="class_seats" required="">
 												<option>Seat Class</option>
 												@foreach($classes as $class)
-													<option value="{{$class->id}}">{{$class->name}}</option>
+													<option data-name="{{$class->name}}" data-price="{{$class->price}}" value="{{$class->id}}">{{$class->name}}</option>
 												@endforeach
 									</select>						
 									<input type="submit" value="searchFlight" class="btn btn-outline-info">	
@@ -168,16 +168,21 @@
 			let adults=$('#adults').val();
 			let child =$('#child').val();
 			let type=$('#searchFlightForm input[name="type"]').val();
-			let class_seats =$('select[name=class] option').filter(':selected').val()
-			//alert(class_seats);
+			let class_seats =$('select[name=class] option').filter(':selected').val();
+			let seat_price=$('option:selected', '#searchFlightForm select[name="class"]').data('price');
+			let seat_name=$('option:selected', '#searchFlightForm select[name="class"]').data('name');
+			// alert(seat_price);
 
 			let passenger={
 				adults:adults,
 				child :child,
 				type:type,
 				class_seats:class_seats,
+				seat_name:seat_name, //aco
+				seat_price:seat_price,
 				toschedule:0,
 				fromschedule:0,
+				
 			}
 			//console.log(passenger);
 			// let passenger_list=localStorage.getItem("people");
@@ -193,7 +198,7 @@
  		       localStorage.setItem("people",passenger_string);
 
 			
-			e.currentTarget.submit();
+			 e.currentTarget.submit();
 			
 			
 		})
@@ -206,13 +211,19 @@
 			let adults=$('#adults').val();
 			let child =$('#child').val();
 			let type=$('#roundsearchFlightForm input[name="type"]').val();
-			let class_seats =$('select[name=class] option').filter(':selected').val()
+			let seat_id =$('select[name=class] option').filter(':selected').val()
+			
+		let seat_price =$('select[name=class] option').filter(':selected').data('price');
+		let seat_name =$('select[name=class] option').filter(':selected').data('name');
+		console.log(seat_id,seat_price,seat_name);
+
 			//alert(class_seats);
 
 			let passenger={
 				adults:adults,
 				child :child,
 				type:type,
+				seat_type:seat_type,
 				class_seats:class_seats,
 				toschedule:0,
 				fromschedule:0,
@@ -231,7 +242,7 @@
  		       localStorage.setItem("people",passenger_string);
 
 			
-			e.currentTarget.submit();
+			// e.currentTarget.submit();
 			
 			
 		})

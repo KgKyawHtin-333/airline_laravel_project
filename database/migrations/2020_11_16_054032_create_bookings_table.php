@@ -16,36 +16,25 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
 
-            
+            $table->string('fname');
+            $table->string('sname');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('dob');
+            $table->string('nrc_passport');
             $table->string('total_price');
             $table->string('total_passenger');
-
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')
-            ->references('id')
-            ->on('users')
-            ->onDelete('cascade');
-
+            $table->smallInteger('status')->default(0);
             $table->unsignedBigInteger('schedule_id');
             $table->foreign('schedule_id')
             ->references('id')
             ->on('schedules')
             ->onDelete('cascade');
-
-            $table->unsignedBigInteger('airline_id');
-            $table->foreign('airline_id')
-                  ->references('id')
-                  ->on('airlines')
-                  ->onDelete('cascade');
-
-            $table->unsignedBigInteger('seat_id');
-            $table->foreign('seat_id')
-                  ->references('id')
-                  ->on('seats')
-                  ->onDelete('cascade');
-            $table->timestamps();
+             $table->timestamps();
         });
     }
+
+    
 
     /**
      * Reverse the migrations.
