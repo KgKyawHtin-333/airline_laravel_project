@@ -13,4 +13,14 @@ class Booking extends Model
     {
        return $this->belongsToMany('App\Schedule','bookingdetails');
     }
+
+     public function user($value='')
+  {
+    return $this->belongsTo('App\User');
+  }
+
+   public function airline($value='')
+  {
+    return $this->belongsTo('App\Airline');
+  }
 }
