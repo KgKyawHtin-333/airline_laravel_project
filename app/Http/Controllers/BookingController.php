@@ -40,153 +40,224 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        // create cubrid_error_code()
+        //createing codeno start
         $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-       $input_length = strlen($permitted_chars);
-        $random_string = '';
-        for($i = 0; $i < 5; $i++) {
-            $random_character = $permitted_chars[mt_rand(0, $input_length - 1)];
-            $random_string .= $random_character;
-        }
-     
-        $codeno="FWU-".$random_string;
-        // dd($codeno);
+           $input_length = strlen($permitted_chars);
+            $random_string = '';
+            for($i = 0; $i < 5; $i++) {
+                $random_character = $permitted_chars[mt_rand(0, $input_length - 1)];
+                $random_string .= $random_character;
+            }
+         
+            $codeno="FWU-".$random_string;
+            // dd($codeno);
+            //createing codeno end
 
-        $data=$request->data;
-        $data=json_decode($data);
-        // dd($data);
-        $fname=$request->firstname;
-        $sname=$request->secondname;
-        $email=$request->email;
-        $phone=$request->phone;
-        $dob=$request->birthdate;
-        $passport=$request->passport;
-        // echo  $fname;die();
-        
-        $totalpeople=$data->adults + $data->child;
-        $totalseatprice=$data->seat_price * $totalpeople;
-        $sid=$data->toschedule;
-         $fid=$data->fromschedule;
-        if($sid !=0){
-             $sdata=Schedule::with(['route','route.fromCity','route.toCity','time','flight','flight.airline'])
-                ->findorFail($sid);
+            // getting data from request start
+            $data=$request->data;
+            $data=json_decode($data);
+            // dd($data);
 
-            $routeprice=$sdata->route->price;
-            $routeprice=$routeprice * $totalpeople;
+            $fname=$request->firstname;
+            $sname=$request->secondname;
+            $email=$request->email;
+            $phone=$request->phone;
+            $dob=$request->birthdate;
+            $passport=$request->passport;
 
-            $total= $routeprice + $totalseatprice;
+            //how many people to ride for total
+            $totalpeople=$data->adults + $data->child;//2
 
+            //how costs for total price with seat * people
+            $totalseatprice=$data->seat_price * $totalpeople;
+
+            $seat_name=$data->seat_name;
             $seatid=$data->class_seats;
 
-            $flight_id=$sdata->flight->id;
+            $mdata=[];
 
-            $getSeat=Seat::where('class_flight_id',$seatid)
-                       -> where('flight_id',$flight_id) 
-                       ->doesntHave('bookings')
-                        ->get();
+            $sid=$data->toschedule;
+            $fid=$data->fromschedule;
 
-                      
-    // dd($getSeat);
-            // $arr=[];
-            // foreach ($getSeat as $key => $value) {
-            //    $id=
-            // }
+            $trip=$data->type;
 
+            if($trip =='oneway'){
+                 // dd('oneway');
+                 $sdata=Schedule::with(['route','route.fromCity','route.toCity',
+                                        'time','flight','flight.airline'])
+                    ->findorFail($sid);
 
-            $seatArr=[];
-            for ($i=0; $i <$totalpeople ; $i++) { 
+                $routeprice=$sdata->route->price;
+                $routeprice=$routeprice * $totalpeople;
 
-                $seatArr[$i]=$getSeat[$i]['id'];
-            }
-            // dd($seatArr);die();
+                $total= $routeprice + $totalseatprice;
 
+                $flight_id=$sdata->flight->id;
 
-            $booking = new Booking;
-           
-            $booking->fname = $fname;
-            $booking->sname = $sname;
-            $booking->email = $email;
-            $booking->phone = $phone;
-            $booking->dob = $dob;
-            $booking->nrc_passport = $passport;
-            $booking->total_price = $total;
-            $booking->total_passenger = $totalpeople;
-            $booking->schedule_id = $sid;
-            $booking->codeno=$codeno;
-            $booking->save();
-            /*  [
-                    {"id":1,"name":"item one","photo":"path","price":5000,"qty":3},
-                    {"id":2,"name":"item one","photo":"path","price":6000,"qty":1}
-                ]
-            */
-            foreach ($seatArr as $row) { 
-                $booking->seats()->attach($row);
-            }
-        }
-       
+                $getSeat=Seat::where('class_flight_id',$seatid)
+                           -> where('flight_id',$flight_id) 
+                           ->doesntHave('bookings')
+                            ->get();
 
-        if($fid!=0){
-             $fdata=Schedule::with(['route','route.fromCity','route.toCity','time','flight','flight.airline'])
-                ->findorFail($fid);
+                if(sizeof($getSeat)<= 0 ||sizeof($getSeat) < $totalpeople){
+                    
+                   return response()->json(['error'=>"Flight with $seat_name is full"]);
+                }else{
+                    $seatArr=[];
+                    for ($i=0; $i <$totalpeople ; $i++) { 
 
-            $routeprice=$fdata->route->price;
-            $routeprice=$routeprice * $totalpeople;
-
-            $total= $routeprice + $totalseatprice;
-
-            $seatid=$data->class_seats;
-
-            $flight_id=$fdata->flight->id;
-
-            $getSeat=Seat::where('class_flight_id',$seatid)
-                       -> where('flight_id',$flight_id) 
-                       ->doesntHave('bookings')
-                        ->get();
-
-                      
-    // dd($getSeat);
-            // $arr=[];
-            // foreach ($getSeat as $key => $value) {
-            //    $id=
-            // }
+                        $seatArr[$i]=$getSeat[$i]['id'];
+                    }
 
 
-            $seatArr=[];
-            for ($i=0; $i <$totalpeople ; $i++) { 
+                    
+                    $booking = new Booking;
+                   
+                    $booking->fname = $fname;
+                    $booking->sname = $sname;
+                    $booking->email = $email;
+                    $booking->phone = $phone;
+                    $booking->dob = $dob;
+                    $booking->nrc_passport = $passport;
+                    $booking->total_price = $total;
+                    $booking->total_passenger = $totalpeople;
+                    $booking->schedule_id = $sid;
+                    $booking->codeno=$codeno;
+                    $booking->save();
+                    
+                    foreach ($seatArr as $row) { 
+                        $booking->seats()->attach($row);
+                    }
+                    return response()->json(['success'=>'booking successfully']);
+                }
+            }else{
+                // dd('two');
+                    //departure start
+                    if($sid!=0){
 
-                $seatArr[$i]=$getSeat[$i]['id'];
-            }
-            // dd($seatArr);die();
-             $booking = new Booking;
-       
-                $booking->fname = $fname;
-                $booking->sname = $sname;
-                $booking->email = $email;
-                $booking->phone = $phone;
-                $booking->dob = $dob;
-                $booking->nrc_passport = $passport;
-                $booking->total_price = $total;
-                $booking->total_passenger = $totalpeople;
-                $booking->schedule_id = $fid;
-                $booking->codeno = $codeno;
-                $booking->save();
-                /*  [
-                        {"id":1,"name":"item one","photo":"path","price":5000,"qty":3},
-                        {"id":2,"name":"item one","photo":"path","price":6000,"qty":1}
-                    ]
-                */
-                foreach ($seatArr as $row) { 
-                    $booking->seats()->attach($row);
+                     $sdata=Schedule::with(['route','route.fromCity','route.toCity',
+                                            'time','flight','flight.airline'])
+                        ->findorFail($sid);
+
+                    $routeprice=$sdata->route->price;
+                    $routeprice=$routeprice * $totalpeople;
+
+                    $total= $routeprice + $totalseatprice;
+
+                    $flight_id=$sdata->flight->id;
+
+                    $sgetSeat=Seat::where('class_flight_id',$seatid)
+                               -> where('flight_id',$flight_id) 
+                               ->doesntHave('bookings')
+                                ->get();
+                                // dd($sgetSeat);
+
+                    if(sizeof($sgetSeat)<= 0 ||sizeof($sgetSeat)<$totalpeople){
+                        // dd('full');
+                    
+                       return response()->json(['error'=>"Flight with $seat_name is full"]);
+                        // $mdata['departure']="flight with $seat_name is full now!";
+                    }else{
+                        // dd('not full');
+                        $seatArr=[];
+                        for ($i=0; $i <$totalpeople ; $i++) { 
+
+                            $seatArr[$i]=$sgetSeat[$i]['id'];
+                        }
+
+
+                        
+                        $booking = new Booking;
+                       
+                        $booking->fname = $fname;
+                        $booking->sname = $sname;
+                        $booking->email = $email;
+                        $booking->phone = $phone;
+                        $booking->dob = $dob;
+                        $booking->nrc_passport = $passport;
+                        $booking->total_price = $total;
+                        $booking->total_passenger = $totalpeople;
+                        $booking->schedule_id = $sid;
+                        $booking->codeno=$codeno;
+                        $booking->save();
+                        
+                        foreach ($seatArr as $row) { 
+                            $booking->seats()->attach($row);
+                        }
+                        $mdata['departure']="Departure flight booking is successful";
+                    }
+
+
+
+                    
+                    }
+
+                if($fid!=0){
+                                 $fdata=Schedule::with(['route','route.fromCity','route.toCity',
+                                                        'time','flight','flight.airline'])
+                                    ->findorFail($fid);
+
+                                $routeprice=$sdata->route->price;
+                                $routeprice=$routeprice * $totalpeople;
+
+                                $total= $routeprice + $totalseatprice;
+
+                                $flight_id=$fdata->flight->id;
+
+                                $fgetSeat=Seat::where('class_flight_id',$seatid)
+                                           -> where('flight_id',$flight_id) 
+                                           ->doesntHave('bookings')
+                                            ->get();
+
+                            if(sizeof($fgetSeat)<= 0 ||sizeof($fgetSeat)<$totalpeople){
+                                 return response()->json(['error'=>"Flight with $seat_name is full"]);
+                                }else{
+                                    $seatArr=[];
+                                    for ($i=0; $i <$totalpeople ; $i++) { 
+
+                                        $seatArr[$i]=$fgetSeat[$i]['id'];
+                                    }
+
+
+                                    
+                                    $booking = new Booking;
+                                   
+                                    $booking->fname = $fname;
+                                    $booking->sname = $sname;
+                                    $booking->email = $email;
+                                    $booking->phone = $phone;
+                                    $booking->dob = $dob;
+                                    $booking->nrc_passport = $passport;
+                                    $booking->total_price = $total;
+                                    $booking->total_passenger = $totalpeople;
+                                    $booking->schedule_id = $fid;
+                                    $booking->codeno=$codeno;
+                                    $booking->save();
+                                    
+                                    foreach ($seatArr as $row) { 
+                                        $booking->seats()->attach($row);
+                                    }
+                                    $mdata['ReturnFlight']="Return flight booking is successful";
+                                }
+
+
+
+                            
+                        }
+
+
+                return response()->json(['success'=>"Flight with $seat_name is full"]);
                 }
 
-        }
 
 
 
-       
+             // getting data from request end
 
-        return 'Successful Order';
+
+
+     
     }
 
     /**

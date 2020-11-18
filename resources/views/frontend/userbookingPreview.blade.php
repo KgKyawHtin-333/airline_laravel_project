@@ -59,8 +59,14 @@
                 <p id="paragraph_four" style="color: red;"></p>
        				</div>
    				</div>
-  			</div>			
-   		     <input type="submit" class="btn btn-sm float-right" style="padding-left: 20px;background-color:#222223;padding-right: 20px;font-size: 20px " value="Book Now!" >
+
+
+  			</div>
+
+
+   			
+   		     <input type="submit" class="btn btn-sm btn-success btn-book float-right" style="padding-left: 20px;padding-right: 20px;font-size: 20px" value="Book Now!" >
+           <input type="button" class="d-none  btn btn-sm btn-danger float-right btn-again" style="padding-left: 20px;padding-right: 20px;font-size: 20px" value="Try Again" >
 
    		    
    		</form>
@@ -346,17 +352,29 @@
     processData: false,
     contentType: false,
             success:function(res){
-              if(res){
-                localStorage.clear();
-                $('.success').html(res);
+              if(res.success){
+                // localStorage.clear();
+                $('.success').html(res.success);
 
+              }else{
+                // localStorage.clear();
+                $('.btn-book').addClass('d-none');
+                $('.btn-again').removeClass('d-none');
+                $('.success').html(res.error);
               }
+
             },
             error:function(error){
               console.log(error);
             }
           })
       });
+
+
+    $('.btn-again').click(function(){
+      localStorage.clear();
+      location.href="/";
+    })
 	})
 </script>
 
