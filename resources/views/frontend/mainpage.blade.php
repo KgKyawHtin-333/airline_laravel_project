@@ -12,7 +12,7 @@
 							<p class="text-white">
 								If you are looking at blank cassettes on the web, you may be very confused at the difference in price. 
 							</p>
-							<a href="#" class="btn btn-outline-info text-uppercase">Get Started</a>
+							<a href="#" class="btn btn-outline-warning text-uppercase">Get Started</a>
 						</div>
 						<div class="col-lg-4 col-md-6 banner-right">
 							<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -47,7 +47,7 @@
 
 									<input type="number" min="1" max="20" class="form-control" name="adults" id="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '"  required="">
 
-                           <input type="number" min="1" max="20" class="form-control" name="child" id="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '" >
+                           <input type="number" min="0" max="20" class="form-control" name="child" id="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '" >
                             <div class="form-group">
                               <select class="form-control" name="class" id="class">
                                           <option>Seat Class</option>
@@ -57,7 +57,7 @@
 
                               </select>
                             </div>							
-									<input type="submit" value="searchFlight"  class="btn btn-outline-info">
+									<input type="submit" value="searchFlight"  class="btn btn-outline-warning">
 							</form>
 							  </div>
 							   <!-- For Round Trip -->
@@ -82,14 +82,14 @@
 									<input type="date" class="form-control " name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '" required="">
 									<input type="date" class="form-control " name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '" required="">
 									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '" required="" id="radults">
-                           			<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '" id="rchilds" >
+                           			<input type="number" min="0" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '" id="rchilds" >
 									<select class="form-control" name="class_seat" id="rclass_seats" required="">
 												<option>Seat Class</option>
 												@foreach($classes as $class)
 													<option data-name="{{$class->name}}" data-price="{{$class->price}}" value="{{$class->id}}">{{$class->name}}</option>
 												@endforeach
 									</select>						
-									<input type="submit" value="searchFlight" class="btn btn-outline-info">	
+									<input type="submit" value="searchFlight" class="btn btn-outline-warning">	
 								</form>							  	
 							  </div>
 							</div>

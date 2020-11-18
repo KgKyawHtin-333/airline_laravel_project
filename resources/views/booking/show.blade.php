@@ -17,46 +17,56 @@
           
           <h2>Booking Detail</h2>
 
-    
+          <section>
+           <div class="container py-3">
+              <div class="row">
+                 <div class="col-md-1 fluid"></div>
+                 <div class="col-md-10">
+                    <div class="card text-center">
+                       <div class="card-header" style="background-color: skyblue">
+                          <div class="row">
+                             <div class="col-md-3"><img class="img-fluid" src="{{asset('frontend_asset/img/flight1.png')}}" alt="" width="50px";height="50px"></div>
+                             <div class="col-md-3"><img class="img-fluid" src="{{asset('frontend_asset/img/flywithus.jpg')}}" alt="" width="80px";height="80px"></div>
+                             <div class="col-md-3">BOARDING PASS</div>
+                             <div class="col-md-3">BOARDING PASS</div>
+                          </div>
+                       </div>
+                       <div class="card-body">
+                          <div class="row">
+                             <div class="col-md-1"></div>
+                             <div class="col-md-2 "><h5> Name:</h5><span class="text-uppercase"> {{$booking->fname}} {{$booking->sname}} </span></div>
+                             <div class="col-md-2 "><h5>NRC:</h5><span> {{$booking->nrc_passport}} </span></div>
+                             <div class="col-md-3 "><h5>Email:</h5><span> {{$booking->email}} </span></div>
+                             <div class="col-md-3 "><h5>Phone:</h5><span> {{$booking->phone}} </span></div>
+                            
+                          </div>
+                          <div class="row my-3">
+                             <div class="col-md-1 fluid"></div>
+                             <div class="col-md-2 "><h5>Total Price:</h5><span> {{$booking->total_price}} </span></div>
+                             <div class="col-md-2 "><h5>Total Passenger:</h5><span> {{$booking->total_passenger}} </span></div>
+                             <div class="col-md-3 "><h5>Date of Birth:</h5><span> {{$booking->dob}} </span></div>
+                             <div class="col-md-3 "><h5>Code NO:</h5><span> {{$booking->codeno}} </span></div>
+                             
+                          </div>
+                          <div class="row my-3">
+                             <div class="col-md-1 fluid"></div>
+                             <div class="col-md-2"><h5>Schedule Id:</h5><span> {{$booking->schedule_id}} </span></div>
+                             
+                             <div class="col-md-2"><h5>Date:</h5><span> {{$booking->created_at}} </span></div>
+                          </div>
+                       </div>
+                       <div class="card-footer text-muted" style="background-color: skyblue">
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
           
-            
-          <table class="table table-bordered">
-            <thead class="thead-dark">
-              <tr>
-                
-                <th>First Name</th>
-                <th>Second Name</th>
-                <th>Total Price</th>
-                <th>Total Passenger</th>
-                <th>Passport/NRC*</th>
-                <th>Schedule Id</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- {{$booking}} -->
-             
-              
-              <tr>
-                 <td>{{$booking->fname}}</td>
-                <td> {{$booking->sname}} </td>
-                <td>{{$booking->total_price}}</td>
-                <td>{{$booking->total_passenger}}</td>
-                <td>{{$booking->nrc_passport}}</td>
-                <td> {{$booking->schedule_id}} </td>  
-               
-              
-              </tr>
-              
-             
-
-              
-            </tbody>
-          </table>
 
           @if($booking->status == 0)
           <form method="post" action="{{route('booking.confirm',$booking->id)}}">
             @csrf
-            <button class="btn btn-info" type="submit">Confirm</button>
+            <button class="btn btn-info" type="submit" style="margin-left: 100px">Confirm</button>
           </form>
 
           @elseif($booking->status == 1)
