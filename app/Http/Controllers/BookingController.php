@@ -37,29 +37,37 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-       
+       //aco editing
         $data=$request->data;
         $data=json_decode($data);
         // dd($data);
+
         $fname=$request->firstname;
         $sname=$request->secondname;
         $email=$request->email;
         $phone=$request->phone;
         $dob=$request->birthdate;
         $passport=$request->passport;
+
         // echo  $fname;die();
-        
-        $totalpeople=$data->adults + $data->child;
+        //how many people to ride for total
+        $totalpeople=$data->adults + $data->child;//2
+
+        //how costs for total price with seat * people
         $totalseatprice=$data->seat_price * $totalpeople;
+
         $sid=$data->toschedule;
 
-        $sdata=Schedule::with(['route','route.fromCity','route.toCity','time','flight','flight.airline'])
+        $sdata=Schedule::with(['route','route.fromCity','route.toCity','time',
+                            'flight','flight.airline'])
                 ->findorFail($sid);
 
-        $routeprice=$sdata->route->price;
+        $routeprice=$sdata->route->price;// 80000 from Y to D
+
+        //cost for total cost with route * totalpeople
         $routeprice=$routeprice * $totalpeople;
 
-        $total= $routeprice + $totalseatprice;
+        $total= $routeprice + $totalseatprice;// total 200000
 
         $seatid=$data->class_seats;
 
@@ -69,7 +77,8 @@ class BookingController extends Controller
                    -> where('flight_id',$flight_id) 
                    ->doesntHave('bookings')
                     ->get();
-
+                    
+                    //[8,9,10];
                   
 // dd($getSeat);
         // $arr=[];
