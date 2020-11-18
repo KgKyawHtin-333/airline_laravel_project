@@ -36,7 +36,7 @@ class AirlineController extends Controller
      */
     public function store(Request $request)
     {   
-        dd($request);
+       // dd($request);
         $request->validate([
             "name"=>"required|min:3",
             "address"=>"required",
@@ -52,7 +52,7 @@ class AirlineController extends Controller
         $airline=new Airline;
         $airline->name=$request->name;
         $airline->address=$request->address;
-        $airline->phoneno=$request->phoneno;
+        $airline->phone_no=$request->phoneno;
         $airline->photo=$path;
         $airline->save();
 

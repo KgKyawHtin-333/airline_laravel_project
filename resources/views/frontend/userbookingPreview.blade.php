@@ -3,15 +3,15 @@
 @section('content')
   <!-- <h1 id="airlinename">	I am user preview booking</h1> -->
 
-      <div class="container">
-  	<div class="row">
+     <div class="container" >
+  	<div class="row my-5">
   		<div class="col-md-6">
 
             <form action="" method="">
 
   			<div class="card my-5">
 
-  				<div class="card-header">
+  				<div class="card-header"  style="background-color: skyblue">
   			      <h2> Traveller Details </h2>
   		        </div>
 
@@ -57,7 +57,7 @@
 
   			</div>
 
-   			<a href="" class="btn btn-success submit_change float-right mb-5" style="padding-left: 30px;padding-right: 30px; font-size: 20px;" type="submit"> Submit </a>
+   			<a href="" class="btn btn-info submit_change float-right mb-5" style="padding-left: 30px;padding-right: 30px; font-size: 20px;" type="submit"> Submit </a>
    		    
    		    </form>
    			
@@ -68,8 +68,8 @@
 
   		<div class="col-md-4 my-5">
   			<div class="card">
-  				<div class="card-header">
-  					<h2> Booking Details </h2>
+  				<div class="card-header" style="background-color: skyblue">
+  					<h2 > Booking Details </h2>
   				</div>
   				<div class="card-body">
   					<div>
@@ -87,15 +87,66 @@
   						<hr>
   					</div>
   				</div>
-  				<div class="card-footer">
+  				<div class="card-footer" style="background-color: skyblue">
   					<div>
-  						<h5> Total price - <span id="totalprice"></span></h5>
+  						<h5 > Total price - <span id="totalprice"></span></h5>
   					</div>
   				</div>
   			</div>
   		</div>
   	</div>
   </div>
+  <section>
+  <div class="container py-3">
+  	<div class="row">
+  		<div class="col-md-1 fluid"></div>
+  		<div class="col-md-10">
+  			<div class="card text-center">
+			  <div class="card-header" style="background-color: skyblue">
+			   	  <div class="row">
+			   	  		<div class="col-md-3"><img class="img-fluid" src="{{asset('frontend_asset/img/flight1.png')}}" alt="" width="50px";height="50px"></div>
+			   	  		<div class="col-md-3"><img class="img-fluid" src="{{asset('frontend_asset/img/flywithus.jpg')}}" alt="" width="80px";height="80px"></div>
+			   	  		<div class="col-md-3">BOARDING PASS</div>
+			   	  		<div class="col-md-3">BOARDING PASS</div>
+			   	  </div>
+			  </div>
+			  <div class="card-body">
+			       <div class="row">
+			       		<div class="col-md-1"></div>
+			       		<div class="col-md-2 "><span>Passenger Name:</span><br><span class="text-uppercase">Hike Min Swan</span></div>
+			       		<div class="col-md-2 "><span>Carrier:</span><br><span>AC</span></div>
+			       		<div class="col-md-2 "><span>Flight No:</span><br><span>UB-123</span></div>
+			       		<div class="col-md-2 "><span>Class:</span><br><span>A</span></div>
+			       		<div class="col-md-2 "><span>Passenger Name:</span><br><span class="text-uppercase">Hike Min Swan</span></div>
+			       </div>
+			        <div class="row my-3">
+			       		<div class="col-md-1 fluid"></div>
+			       		<div class="col-md-2 "><span>From:Yangon</span><br><span>To:Mandalay</span></div>
+			       		<div class="col-md-2 "><span>Date:</span><br><span>17/11/2020</span></div>
+			       		<div class="col-md-2 "><span>Luggage:</span><br><span>Y</span></div>
+			       		<div class="col-md-2 "><span>Class:</span><br><span>SA</span></div>
+			       		<div class="col-md-2 "><span>From:Yangon</span><br><span>To:Mandalay</span></div>
+			       </div>
+			       <div class="row my-3">
+			       		<div class="col-md-1 fluid"></div>
+			       		<div class="col-md-2"><span>Gate:</span><br><span>K18:</span></div>
+			       		<div class="col-md-2 "><span>BOARDING TIME:</span><br><span>3:30</span></div>
+			       		<div class="col-md-4 "><span>12345678</span><br><span></span></div>
+			       		<div class="col-md-1"><span>Seat:</span><br><span>5A</span></div>
+			       		<div class="col-md-2"><span>Date:</span><br><span>17/11/2020</span></div>
+			       		
+			       </div>
+
+
+			  </div>
+			  <div class="card-footer text-muted" style="background-color: skyblue">
+			   
+			  </div>
+			</div>
+  		</div>
+  	</div> 
+  </div>
+</section>
 
      
 
