@@ -12,7 +12,7 @@
 							<p class="text-white">
 								If you are looking at blank cassettes on the web, you may be very confused at the difference in price. 
 							</p>
-							<a href="#" class="primary-btn text-uppercase">Get Started</a>
+							<a href="#" class="btn btn-outline-info text-uppercase">Get Started</a>
 						</div>
 						<div class="col-lg-4 col-md-6 banner-right">
 							<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -29,25 +29,25 @@
 								<form class="form-wrap" id="searchFlightForm" action="{{route('flightSearch')}}" method="POST" >
 								@csrf	
 									<input type="hidden" name="type" value="oneway">
-									<select class="form-control" name="Fromcity">
+									<select class="form-control" name="Fromcity"  required="">
 										<option> From city </option>
 										@foreach($cities as $city)
 										<option value="{{$city->id}}"> {{$city->name}} </option>
 									    @endforeach
 									</select>
 
-									<select class="form-control" name="Tocity" >
+									<select class="form-control" name="Tocity" class="required">
 										<option> To city </option>
 										@foreach($cities as $city)
 										<option value="{{$city->id}}"> {{$city->name}} </option>
 									    @endforeach
 									</select>
 
-									<input type="date" class="form-control " name="start" placeholder="Departure " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+									<input type="date" class="form-control " name="start" placeholder="Departure " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '"  required="">
 
-									<input type="number" min="1" max="20" class="form-control" name="adults" id="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
+									<input type="number" min="1" max="20" class="form-control" name="adults" id="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '"  required="">
 
-                           <input type="number" min="1" max="20" class="form-control" name="child" id="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                           <input type="number" min="1" max="20" class="form-control" name="child" id="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '" >
                             <div class="form-group">
                               <select class="form-control" name="class" id="class">
                                           <option>Seat Class</option>
@@ -57,39 +57,39 @@
 
                               </select>
                             </div>							
-									<input type="submit" value="searchFlight" >
+									<input type="submit" value="searchFlight"  class="btn btn-outline-info">
 							</form>
 							  </div>
-							   
+							   <!-- For Round Trip -->
 							  <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
-							  <form class="form-wrap" id="roundsearchFlightForm" action="{{route('flightSearch')}}" method="POST" >
+							  <form class="form-wrap" id="roundsearchFlightForm" action="{{route('flightSearchRound')}}" method="POST" >
 								@csrf	
 								<input type="hidden" name="type" value="roundtrip">
-                                   <select class="form-control" name="Fromcity" >
+                                   <select class="form-control" name="Fromcity" required="" >
 										<option> From city </option>
 										@foreach($cities as $city)
 										<option value="{{$city->id}}"> {{$city->name}} </option>
 									    @endforeach
 									</select>
 
-									<select class="form-control" name="Tocity">
+									<select class="form-control" name="Tocity" required="">
 										<option> To city </option>
 										@foreach($cities as $city)
 										<option value="{{$city->id}}"> {{$city->name}} </option>
 									    @endforeach
 									</select>
 
-									<input type="date" class="form-control " name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
-									<input type="date" class="form-control " name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-                           			<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
-									<select class="form-control" name="class_seats" id="class_seats">
+									<input type="date" class="form-control " name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '" required="">
+									<input type="date" class="form-control " name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '" required="">
+									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '" required="" id="radults">
+                           			<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '" id="rchilds" >
+									<select class="form-control" name="class_seat" id="rclass_seats" required="">
 												<option>Seat Class</option>
 												@foreach($classes as $class)
 													<option data-name="{{$class->name}}" data-price="{{$class->price}}" value="{{$class->id}}">{{$class->name}}</option>
 												@endforeach
 									</select>						
-									<input type="submit" value="searchFlight" >	
+									<input type="submit" value="searchFlight" class="btn btn-outline-info">	
 								</form>							  	
 							  </div>
 							</div>
@@ -203,32 +203,30 @@
 			
 		})
 
-		// roundtrip
 		$('#roundsearchFlightForm').on('submit',function(e){
-			// let formData=new FormData(this);
+			// alert('j');
 			e.preventDefault();
-			//alert('hello');
-			let adults=$('#adults').val();
-			let child =$('#child').val();
-			let type=$('#roundsearchFlightForm input[name="type"]').val();
-			let seat_id =$('select[name=class] option').filter(':selected').val()
 			
-		let seat_price =$('select[name=class] option').filter(':selected').data('price');
-		let seat_name =$('select[name=class] option').filter(':selected').data('name');
-		console.log(seat_id,seat_price,seat_name);
-
-			//alert(class_seats);
+			let adults=$('#radults').val();
+			let child =$('#rchilds').val();
+			let type=$('#roundsearchFlightForm input[name="type"]').val();
+			let class_seats =$('#roundsearchFlightForm select[name=class_seat] option').filter(':selected').val();
+			let seat_price=$('option:selected', '#roundsearchFlightForm select[name="class_seat"]').data('price');
+			let seat_name=$('option:selected', '#roundsearchFlightForm select[name="class_seat"]').data('name');
+			// alert(seat_price);
 
 			let passenger={
 				adults:adults,
 				child :child,
 				type:type,
-				seat_type:seat_type,
 				class_seats:class_seats,
+				seat_name:seat_name, //aco
+				seat_price:seat_price,
 				toschedule:0,
 				fromschedule:0,
+				
 			}
-			//console.log(passenger);
+			// console.log(passenger);
 			// let passenger_list=localStorage.getItem("people");
  		
 			//  var passenger_array;
@@ -242,10 +240,54 @@
  		       localStorage.setItem("people",passenger_string);
 
 			
-			// e.currentTarget.submit();
+			 e.currentTarget.submit();
 			
 			
 		})
+
+		// roundtrip
+		// $('#roundsearchFlightForm').on('submit',function(e){
+		// 	// let formData=new FormData(this);
+		// 	e.preventDefault();
+		// 	//alert('hello');
+		// 	let adults=$('#adults').val();
+		// 	let child =$('#child').val();
+		// 	let type=$('#roundsearchFlightForm input[name="class"]').val();
+		// 	let seat_id =$('select[name=class] option').filter(':selected').val()
+			
+		// let seat_price =$('select[name=class] option').filter(':selected').data('price');
+		// let seat_name =$('select[name=class] option').filter(':selected').data('name');
+		// console.log(seat_id,seat_price,seat_name);
+
+		// 	//alert(class_seats);
+
+		// 	let passenger={
+		// 		adults:adults,
+		// 		child :child,
+		// 		type:type,
+		// 		seat_type:seat_type,
+		// 		class_seats:class_seats,
+		// 		toschedule:0,
+		// 		fromschedule:0,
+		// 	}
+		// 	//console.log(passenger);
+		// 	// let passenger_list=localStorage.getItem("people");
+ 		
+		// 	//  var passenger_array;
+		// 	//  if(passenger_list==null){
+		// 	// 	passenger_array=[];
+		// 	// 	}else{
+		// 	// 		passenger_array=JSON.parse(passenger_list);
+		// 	// 	}
+		// 	// 	passenger_array.push(passenger);
+		// 		let passenger_string=JSON.stringify(passenger);
+ 	// 	       localStorage.setItem("people",passenger_string);
+
+			
+		// 	// e.currentTarget.submit();
+			
+			
+		// })
 	})
 </script>
 @endsection

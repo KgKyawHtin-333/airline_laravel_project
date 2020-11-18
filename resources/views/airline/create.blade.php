@@ -17,10 +17,10 @@
     <div class="row">
       <div class="col-md-12">
         <div class="tile">
-        <a href="{{route('flight.index')}}" class="btn btn-info float-right"><i class="fas fa-backward"></i></a>
+        <a href="{{route('airline.index')}}" class="btn btn-info float-right"><i class="fas fa-backward"></i></a>
 
-        <h2>Flight Form</h2>
-        <form action="{{route('flight.store')}}" method="POST" enctype="multipart/form-data">
+        <h2>AirLine Form</h2>
+        <form action="{{route('airline.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
             <div class="form-group row">
                 <label for="name">Name</label>

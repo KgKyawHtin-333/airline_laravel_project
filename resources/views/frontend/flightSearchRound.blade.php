@@ -10,6 +10,7 @@
                        
 						<div class="col-md-12">
                              @foreach($data as $d)
+                                <h2>Departure</h2>
                                 <div class="card my-3">
                                    <div class="card-body">
                                     <div class="row">
@@ -34,7 +35,36 @@
                                 </div>
                                 @endforeach
 				        </div>
-                    </div>
+                        
+                            <div class="col-md-12">
+                                 @foreach($dataReturn as $return)
+                                    <h2>Return</h2>
+                                    <div class="card my-3">
+                                       <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-3">    
+                                                    <span>From {{$return->route->FromCity->name}}- To{{$return->route->toCity->name}}</span><br>
+                                                    <span>{{$return->flight->airline->name}}</span> <br>
+                                                     <span>{{$return->flight->airline->photo}}</span> <br><span>{{$return->flight->name}}</span><br>
+                                             </div> 
+                                             <div class="col-md-3">
+                                                    <span>{{$return->time->name}}</span>
+                                             </div>
+                                             <div class="col-md-3">
+                                                    <span>{{$return->route->price}}</span>
+                                             </div>
+                                             <div class="col-md-3">
+                                                <input type="button" value="Choose" class="btn btn-outline-info checkout"  data-id="{{$return->id}}"> 
+
+                                            </div>
+
+                                        </div>
+                                       </div>
+                                    </div>
+                                    @endforeach
+                            </div>
+
+                        </div>
                            
 
                              
@@ -112,27 +142,22 @@
               
            let schedule_id=$(this).data('id');
             console.log(schedule_id);
-            if(dataArray.type=='oneway'){
 
-                    dataArray.toschedule=schedule_id;
-                     localStorage.setItem('people',JSON.stringify(dataArray));
-                location.href="/prevbook";  
-
-            }else{
-                if(dataArray.fromschedule==0){
+             if(dataArray.fromschedule==0){
                      if(dataArray.toschedule!=0){
-                    dataArray.fromschedule=schedule_id;
+                     dataArray.fromschedule=schedule_id;
+                     localStorage.setItem('people',JSON.stringify(dataArray));
+
+                        location.href="/prevbook"; 
+
                     }else{
                         dataArray.toschedule=schedule_id;
+                        localStorage.setItem('people',JSON.stringify(dataArray));
                     }
-                     localStorage.setItem('people',JSON.stringify(dataArray));
+                     
                 }else{
                     console.log('you have already choosen for round trip!');
                 }
-               
-
-            }
-           
           
           
 

@@ -4,14 +4,24 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Booking extends Model
 {
-   protected $fillable=['fname','sname','email','phone','dob','nrc_passport','total_price','total_passenger','schedule_id'];
+   protected $fillable=['fname','sname','email','phone','dob','nrc_passport','total_price','total_passenger','schedule_id','codeno'];
 
 
     public function schedules()
     {
-       return $this->belongsToMany('App\Schedule','bookingdetails');
+       return $this->belongsToMany('App\Schedule');
+                   
+    }
+
+
+   
+
+    public function airline($value='')
+    {
+    return $this->belongsTo('App\Airline');
     }
 
     public function seats()
@@ -19,4 +29,5 @@ class Booking extends Model
         return $this->belongsToMany('App\Seat','booking_seats')
         		->withTimestamps();
     }
+
 }

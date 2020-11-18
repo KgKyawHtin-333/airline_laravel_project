@@ -51,7 +51,7 @@ Route::get('register_page', 'FrontendController@register_page')->name('register_
 // for only one way
 Route::post('flightSearch','FrontendController@flightSearch')->name('flightSearch');
 //for roundtrip seach
-Route::post('flightSearchRound','FrontendController@flightSearchR')->name('flightSearchR');
+Route::post('flightSearchRound','FrontendController@flightSearchRound')->name('flightSearchRound');
 
 
 Auth::routes();
@@ -62,4 +62,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/prevbook', 'BookingController@previewBooking')->name('prevbook');
 //for user to show schedule booking with ajax
 Route::get('/getScheduleUser/{id}','BookingController@getScheduleUser')->name('getScheduleUser');
+
+Route::post('confirm/{id}', 'BookingController@confirm')->name('booking.confirm');
 
