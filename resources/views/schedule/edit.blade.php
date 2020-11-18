@@ -22,6 +22,16 @@
         <form action="{{route('schedule.update',$schedule->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+                 <div class="form-group row">
+                <label for="date"> Date </label>
+                <input type="date" class="form-control @error('date') is-invalid @enderror"  name="date" value="{{$schedule->date}}"> 
+                @error('date')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{$message}}</strong>
+                    </span>
+
+                @enderror 
+                </div>
                 <div class="form-group row">
                         <label for="from_city">Route Name</label>
                         <select id="From_city" class="form-control" name="route" value="route">

@@ -51,7 +51,7 @@ Route::get('register_page', 'FrontendController@register_page')->name('register_
 // for only one way
 Route::post('flightSearch','FrontendController@flightSearch')->name('flightSearch');
 //for roundtrip seach
-Route::post('flightSearchRound','FrontendController@flightSearchR')->name('flightSearchR');
+Route::post('flightSearchRound','FrontendController@flightSearchRound')->name('flightSearchRound');
 
 
 Auth::routes();

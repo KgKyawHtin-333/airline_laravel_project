@@ -30,6 +30,7 @@ class FrontendController extends Controller
     public function register_page($value=''){
     	return view('frontend.register_page');
     }
+    //For One Way
     public function flightSearch(Request $request,City $city){
       
         //dd($request);
@@ -50,5 +51,33 @@ class FrontendController extends Controller
        // dd($data);
        // $routes=Route::all();
         return view('frontend.flightSearch',compact('data')); 
+    }
+    //For Round Trip
+    public function flightSearchRound(Request $request,City $city){
+        //dd($request);
+        $From_city=$request->Fromcity;
+        $To_city=$request->Tocity;
+        $departureDate=$request->start;
+        //$departureDate = date("Y-m-d", strtotime($departureDate));  
+        $returnDate= $request->return;
+       // $returnDate = date("Y-m-d", strtotime($returnDate)); 
+        $adults=$request->adults;
+        $child=$request->child;
+        $class=$request->class; 
+         
+        //departure 
+        $data=Schedule::with('route')
+        ->whereHas('route',function($q) use ($From_city,$To_city){
+            $q->where('From_city_id','=',$From_city)->where('To_city_id','=',$To_city);
+        })->where ('date',$departureDate)->get();
+        //Return
+        $dataReturn=Schedule::with('route')
+        ->whereHas('route',function($q) use ($From_city,$To_city){
+            $q->where('From_city_id','=',$To_city)->where('To_city_id','=',$From_city);
+        })->where ('date',$returnDate)->get();
+      // dd($dataReturn);
+         return view('frontend.flightSearchRound',compact('data','dataReturn')); 
+
+        
     }
 }

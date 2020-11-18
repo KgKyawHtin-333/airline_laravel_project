@@ -1,6 +1,6 @@
 @extends('frontendtemplate')
-
 @section('content')
+
   <!-- <h1 id="airlinename">	I am user preview booking</h1> -->
 
      <div class="container" >
@@ -107,60 +107,58 @@
   		</div>
   	</div>
   </div>
-  <section>
-  <div class="container py-3">
-  	<div class="row">
-  		<div class="col-md-1 fluid"></div>
-  		<div class="col-md-10">
-  			<div class="card text-center">
-			  <div class="card-header" style="background-color: skyblue">
-			   	  <div class="row">
-			   	  		<div class="col-md-3"><img class="img-fluid" src="{{asset('frontend_asset/img/flight1.png')}}" alt="" width="50px";height="50px"></div>
-			   	  		<div class="col-md-3"><img class="img-fluid" src="{{asset('frontend_asset/img/flywithus.jpg')}}" alt="" width="80px";height="80px"></div>
-			   	  		<div class="col-md-3">BOARDING PASS</div>
-			   	  		<div class="col-md-3">BOARDING PASS</div>
-			   	  </div>
-			  </div>
-			  <div class="card-body">
-			       <div class="row">
-			       		<div class="col-md-1"></div>
-			       		<div class="col-md-2 "><span>Passenger Name:</span><br><span class="text-uppercase">Hike Min Swan</span></div>
-			       		<div class="col-md-2 "><span>Carrier:</span><br><span>AC</span></div>
-			       		<div class="col-md-2 "><span>Flight No:</span><br><span>UB-123</span></div>
-			       		<div class="col-md-2 "><span>Class:</span><br><span>A</span></div>
-			       		<div class="col-md-2 "><span>Passenger Name:</span><br><span class="text-uppercase">Hike Min Swan</span></div>
-			       </div>
-			        <div class="row my-3">
-			       		<div class="col-md-1 fluid"></div>
-			       		<div class="col-md-2 "><span>From:Yangon</span><br><span>To:Mandalay</span></div>
-			       		<div class="col-md-2 "><span>Date:</span><br><span>17/11/2020</span></div>
-			       		<div class="col-md-2 "><span>Luggage:</span><br><span>Y</span></div>
-			       		<div class="col-md-2 "><span>Class:</span><br><span>SA</span></div>
-			       		<div class="col-md-2 "><span>From:Yangon</span><br><span>To:Mandalay</span></div>
-			       </div>
-			       <div class="row my-3">
-			       		<div class="col-md-1 fluid"></div>
-			       		<div class="col-md-2"><span>Gate:</span><br><span>K18:</span></div>
-			       		<div class="col-md-2 "><span>BOARDING TIME:</span><br><span>3:30</span></div>
-			       		<div class="col-md-4 "><span>12345678</span><br><span></span></div>
-			       		<div class="col-md-1"><span>Seat:</span><br><span>5A</span></div>
-			       		<div class="col-md-2"><span>Date:</span><br><span>17/11/2020</span></div>
-			       		
-			       </div>
+  
 
+<!-- <h1 id="airlinename">	I am user preview booking</h1> -->
 
-			  </div>
-			  <div class="card-footer text-muted" style="background-color: skyblue">
-			   
-			  </div>
-			</div>
-  		</div>
-  	</div> 
-  </div>
+<section>
+   <div class="container py-3">
+      <div class="row">
+         <div class="col-md-1 fluid"></div>
+         <div class="col-md-10">
+            <div class="card text-center">
+               <div class="card-header" style="background-color: skyblue">
+                  <div class="row">
+                     <div class="col-md-3"><img class="img-fluid" src="{{asset('frontend_asset/img/flight1.png')}}" alt="" width="50px";height="50px"></div>
+                     <div class="col-md-3"><img class="img-fluid" src="{{asset('frontend_asset/img/flywithus.jpg')}}" alt="" width="80px";height="80px"></div>
+                     <div class="col-md-3">BOARDING PASS</div>
+                     <div class="col-md-3">BOARDING PASS</div>
+                  </div>
+               </div>
+               <div class="card-body">
+                  <div class="row">
+                     <div class="col-md-1"></div>
+                     <div class="col-md-2 "><span>Passenger Name:</span><br><span class="text-uppercase">Hike Min Swan</span></div>
+                     <div class="col-md-2 "><span>Carrier:</span><br><span>AC</span></div>
+                     <div class="col-md-2 "><span>Flight No:</span><br><span>UB-123</span></div>
+                     <div class="col-md-2 "><span>Class:</span><br><span>A</span></div>
+                     <div class="col-md-2 "><span>Passenger Name:</span><br><span class="text-uppercase">Hike Min Swan</span></div>
+                  </div>
+                  <div class="row my-3">
+                     <div class="col-md-1 fluid"></div>
+                     <div class="col-md-2 "><span>From:Yangon</span><br><span>To:Mandalay</span></div>
+                     <div class="col-md-2 "><span>Date:</span><br><span>17/11/2020</span></div>
+                     <div class="col-md-2 "><span>Luggage:</span><br><span>Y</span></div>
+                     <div class="col-md-2 "><span>Class:</span><br><span>SA</span></div>
+                     <div class="col-md-2 "><span>From:Yangon</span><br><span>To:Mandalay</span></div>
+                  </div>
+                  <div class="row my-3">
+                     <div class="col-md-1 fluid"></div>
+                     <div class="col-md-2"><span>Gate:</span><br><span>K18:</span></div>
+                     <div class="col-md-2 "><span>BOARDING TIME:</span><br><span>3:30</span></div>
+                     <div class="col-md-4 "><span>12345678</span><br><span></span></div>
+                     <div class="col-md-1"><span>Seat:</span><br><span>5A</span></div>
+                     <div class="col-md-2"><span>Date:</span><br><span>17/11/2020</span></div>
+                  </div>
+               </div>
+               <div class="card-footer text-muted" style="background-color: skyblue">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
 </section>
-
-     
-
 @endsection
 @section('script')
 
@@ -197,7 +195,12 @@
 
 
 		let sid=varArr.toschedule;
+
 		console.log(sid);
+
+		let fid=varArr.fromschedule;
+		// console.log(sid); departure way
+
 		$.get(`/getScheduleUser/${sid}`,function(res){
 			console.log(res);
 			$('#airlinename').html(res.flight.airline.name);
@@ -220,6 +223,26 @@
         $('#total').html(total);
 			
 		})
+
+		// return way
+		if(fid!=0){
+			$('#roundTripDetail').removeClass('d-none');
+			$('#rclassname').html(varArr.seat_name);
+		    $('#radult').html(varArr.adults);
+		    $('#rchild').html(varArr.child);
+			$.get(`/getScheduleUser/${fid}`,function(res){
+			console.log(res);
+				$('#rairlinename').html(res.flight.airline.name);
+				$('#rfromCity').html(res.route.from_city.name);
+				$('#rtoCity').html(res.route.to_city.name);
+				$('#rtime').html(res.time.name);
+				$('#rdate').html(res.date);
+				$('#rtotalprice').html(res.route.price);
+				
+			})
+		}
+		
+
 // aco with form submitting
 		$('form').submit(function(e){
       e.preventDefault();
