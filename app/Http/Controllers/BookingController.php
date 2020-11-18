@@ -16,7 +16,10 @@ class BookingController extends Controller
      */
     public function index()
     {
-        //
+         $pending_orders = Booking::all();
+        // $confirmed_orders = Booking::where('status',1)->get();
+        
+        return view('booking.index', compact('pending_orders'));
     }
 
     /**
