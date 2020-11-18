@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Airline extends Model
 {
     protected $fillable=['name','address','phone_no','photo'];
+
+    
 }
+
+

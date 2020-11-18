@@ -61,10 +61,11 @@
 
 
    			
-   			<input type="submit" class="btn btn-sm btn-success form-control" value="Book Now!" >
+   		     <input type="submit" class="btn btn-sm btn-success float-right" style="padding-left: 20px;padding-right: 20px;font-size: 20px" value="Book Now!" >
 
    		    
    		</form>
+
    			
 
   		</div>
@@ -97,7 +98,7 @@
   				</div>
   				<div class="card-footer" style="background-color: skyblue">
   					<div>
-  						<h5 > Total price - <span id="totalprice"></span></h5>
+  						<h5 > Total price - <span id="total"></span></h5>
   					</div>
   				</div>
   			</div>
@@ -179,9 +180,24 @@
 		    $('#adult').html(varArr.adults);
 		    $('#child').html(varArr.child);
 
+        // var totalpeople=varArr.adults + varArr.child;
+        // console.log(totalpeople);
+        //  var totalseatprice=varArr.seat_price * totalpeople;
+        //  console.log(totalseatprice);
+
+        // var sdata=varArr.toschedule.route.price;
+        // console.log(sdata);
+
+         // var routeprice=sdata.route.price;
+         // var routeprice=routeprice * totalpeople;
+
+        // var total= routeprice + totalseatprice;
+        // $('#total').html(total);
+
+
 
 		let sid=varArr.toschedule;
-		// console.log(sid);
+		console.log(sid);
 		$.get(`/getScheduleUser/${sid}`,function(res){
 			console.log(res);
 			$('#airlinename').html(res.flight.airline.name);
@@ -189,7 +205,19 @@
 			$('#toCity').html(res.route.to_city.name);
 			$('#time').html(res.time.name);
 			$('#date').html(res.date);
-			$('#totalprice').html(res.route.price);
+			// $('#totalprice').html(res.route.price);
+
+       var totalpeople=parseInt(varArr.adults) + parseInt(varArr.child);
+        console.log(totalpeople);
+         var totalseatprice=varArr.seat_price * totalpeople;
+         console.log(totalseatprice);
+
+        var sdata=res.route.price;
+        console.log(sdata);
+        var routeprice = sdata * totalpeople;
+        console.log(routeprice);
+        var total= routeprice+totalseatprice;
+        $('#total').html(total);
 			
 		})
 // aco with form submitting

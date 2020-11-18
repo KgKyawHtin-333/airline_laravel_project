@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Booking extends Model
 {
    protected $fillable=['fname','sname','email','phone','dob','nrc_passport','total_price','total_passenger','schedule_id'];
@@ -11,19 +12,17 @@ class Booking extends Model
 
     public function schedules()
     {
-       return $this->belongsToMany('App\Schedule','bookingdetails');
+       return $this->belongsToMany('App\Schedule');
+                   
     }
 
 
-     public function user($value='')
-  {
-    return $this->belongsTo('App\User');
-  }
+   
 
-   public function airline($value='')
-  {
+    public function airline($value='')
+    {
     return $this->belongsTo('App\Airline');
-  }
+    }
 
     public function seats()
     {

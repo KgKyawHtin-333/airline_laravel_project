@@ -63,3 +63,5 @@ Route::get('/prevbook', 'BookingController@previewBooking')->name('prevbook');
 //for user to show schedule booking with ajax
 Route::get('/getScheduleUser/{id}','BookingController@getScheduleUser')->name('getScheduleUser');
 
+Route::post('confirm/{id}', 'BookingController@confirm')->name('booking.confirm');
+

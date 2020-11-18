@@ -16,10 +16,10 @@ class BookingController extends Controller
      */
     public function index()
     {
-         $pending_orders = Booking::all();
-        // $confirmed_orders = Booking::where('status',1)->get();
+        $pending_orders = Booking::where('status',0)->get();
+        $confirmed_orders = Booking::where('status',1)->get();
         
-        return view('booking.index', compact('pending_orders'));
+        return view('booking.index', compact('pending_orders', 'confirmed_orders'));
     }
 
     /**
@@ -121,7 +121,7 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        //
+        return view('booking.show', compact('booking'));
     }
 
     /**
@@ -155,7 +155,8 @@ class BookingController extends Controller
      */
     public function destroy(Booking $booking)
     {
-        //
+        $booking->delete();
+        return back();
     }
 
     public function previewBooking(){
@@ -166,5 +167,13 @@ class BookingController extends Controller
         $data=Schedule::with(['route','route.fromCity','route.toCity','time','flight','flight.airline'])
                 ->findorFail($id);
         return $data;
+    }
+
+   public function confirm($id)
+    {
+        $booking = Booking::find($id);
+        $booking->status = 1;
+        $booking->save();
+        return back();
     }
 }

@@ -58,9 +58,10 @@
                     <th>No</th>
                     <th>Total Price</th>
                     <th>Total Passenger</th>
-                    <th>User</th>
-                    <th>Schedule</th>
-                    <th>Airline</th>
+                    <th>Schedule Id</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -75,12 +76,18 @@
                     <td>
                       {{$row->total_passenger}}
                     </td>
-                    <td> {{$row->user->name}} </td>
+                    
                     <td>{{$row->schedule_id}}</td>
-                    <td>{{$row->airline->name}}</td>
+                    <td>{{$row->email}}</td>
+                    <td> {{$row->phone}} </td>
                     <td>
                        <a href="{{route('booking.show',$row->id)}}" class="btn btn-primary">Detail</a>
-                      <a href="#" class="btn btn-danger">Cancel</a>
+                      <form action="{{route('booking.destroy',$row->id)}}" method="POST" class="d-inline-block" onsubmit="
+                        return confirm('Are you sure want to Cancel?')">
+                        @csrf 
+                        @method ('DELETE')
+                         <input type="submit" class="btn btn-danger" name="btnsubmit" value="Cancel">
+                        </form> 
 
                     </td>
                   </tr>
@@ -91,23 +98,36 @@
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <table class="table mt-3 table-bordered dataTable">
-                <thead>
+                 <thead>
                   <tr>
                     <th>No</th>
-                    <th>Orderno</th>
-                    <th>Orderdate</th>
-                    <th>Total Amount</th>
-                    <th>Customer Name</th>
+                    <th>Total Price</th>
+                    <th>Total Passenger</th>
+                    <th>Schedule Id</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
                     <tr>
-                      <td> 1 </td>
-                      <td> 160000 </td>
-                      <td> 2 </td>
-                      <td> Kg Kg </td>
-                      <td> 5 </td>
-                      <td> Myanmar National Airline </td>
+                      @php 
+                    $i=1;
+                  @endphp
+                  @foreach($confirmed_orders as $row)
+                  <tr>
+                    <td>{{$i++}}</td>
+                    <td>{{$row->total_price}}</td>
+                    <td>
+                      {{$row->total_passenger}}
+                    </td>
+                    
+                    <td>{{$row->schedule_id}}</td>
+                    <td>{{$row->email}}</td>
+                    <td> {{$row->phone}} </td>
+                   
+                  </tr>
+                  @endforeach
                     </tr>
                 </tbody>
               </table>
