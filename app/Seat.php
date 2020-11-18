@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Seat extends Model
 {
-    protected $fillable=['class_flight_id','airline_id','flight_id'];
+    protected $fillable=['name','class_flight_id','flight_id'];
 
     public function classFlight(){
         return $this->belongsTo('App\ClassFlight');
@@ -16,5 +16,11 @@ class Seat extends Model
     }
     public function airline(){
         return $this->belongsTo('App\Airline');
+    }
+
+    public function bookings()
+    {
+        return $this->belongsToMany('App\Seat','booking_seats')
+                ->withTimestamps();
     }
 }

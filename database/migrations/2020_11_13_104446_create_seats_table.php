@@ -15,7 +15,7 @@ class CreateSeatsTable extends Migration
     {
         Schema::create('seats', function (Blueprint $table) {
             $table->id();
-
+            $table->string('name');
             $table->unsignedBigInteger('class_flight_id');
 
             $table->foreign('class_flight_id')
@@ -23,12 +23,7 @@ class CreateSeatsTable extends Migration
                     ->on('class_flights')
                     ->onDelete('cascade');
 
-            $table->unsignedBigInteger('airline_id');
-
-            $table->foreign('airline_id')
-                    ->references('id')
-                    ->on('airlines')
-                    ->onDelete('cascade'); 
+            
                     
             $table->unsignedBigInteger('flight_id');
 

@@ -23,7 +23,6 @@ class CreateBookingSeatsTable extends Migration
             ->onDelete('cascade');
 
             $table->unsignedBigInteger('seat_id');
-           
             $table->foreign('seat_id')
                   ->references('id')
                   ->on('seats')

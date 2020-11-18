@@ -1,0 +1,27 @@
+Seat
+->classflight_id
+->flight_id
+->name
+
+data=>{
+	bussiness, 1 , A1
+}
+
+Booking ->fn,sn,email,phone,passport,total people(3), totalprice,created_at,schedule_id(flight,route(city),time,)
+
+
+booking_seats(pivot)
+-> booking_id, seat_id
+		1,1
+		1,2
+		1,3
+
+
+
+Process=> no login(get to book)
+
+softDelete==>
+must=> 
+
+
+

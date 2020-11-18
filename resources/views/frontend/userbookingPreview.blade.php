@@ -7,8 +7,10 @@
   	<div class="row">
   		<div class="col-md-6">
 
-            <form action="" method="">
+        <h1 class="text-success success" ></h1>
 
+    <form id="bookingForm" action="" method=""> 
+<!-- aco adding id="bookingForm" -->
   			<div class="card my-5">
 
   				<div class="card-header">
@@ -36,7 +38,7 @@
 
   					<div class="form-group">
   						<label for="phone"> Phone </label>
-  						<input type="number" name="phone" id="phone" class="form-control" required="">
+  						<input type="text" name="phone" id="phone" class="form-control" required="">
               <p id="paragraph_three" style="color: red;"></p>
   					</div>
 
@@ -57,9 +59,9 @@
 
   			</div>
 
-   			<a href="" class="btn btn-success submit_change float-right mb-5" style="padding-left: 30px;padding-right: 30px; font-size: 20px;" type="submit"> Submit </a>
+   			<input type="submit" class="btn btn-sm btn-success form-control" value="Book Now!" >
    		    
-   		    </form>
+   		</form>
    			
 
   		</div>
@@ -67,7 +69,7 @@
   		<div class="offset-md-2"></div>
 
   		<div class="col-md-4 my-5">
-  			<form action="" method="">
+  			<!-- <form action="" method=""> -->
   			<div class="card">
   				<div class="card-header">
   					<h2> Booking Details </h2>
@@ -84,7 +86,7 @@
   						<hr>
   						<h5 id="airlinename">  </h5>
   						<hr>
-  						<p id="classname">Class Name</p>
+  						<h5>Seat - <span id="classname"></span></h5>
   						<hr>
   						<h5>Adult - <span id="adult"></span></h5>
   						<h5>Child - <span id="child"></span></h5>
@@ -96,8 +98,8 @@
   					</div>
   				</div>
   			</div>
-  			 <button type="submit" class="btn btn-success booking float-right my-3" > Booking </button>
-  		</form>
+  			<!--  <button type="submit" class="btn btn-success booking float-right my-3" > Booking </button> -->
+  		<!-- </form> -->
   		</div>
   	</div>
   </div>
@@ -119,7 +121,7 @@
 		let var1=localStorage.getItem('people');
 		let varArr=JSON.parse(var1);
 
-		    $('#classname').html(varArr.class_seats);
+		    $('#classname').html(varArr.seat_name);
 		    $('#adult').html(varArr.adults);
 		    $('#child').html(varArr.child);
 
@@ -136,16 +138,33 @@
 			$('#totalprice').html(res.route.price);
 			
 		})
+// aco with form submitting
+		$('form').submit(function(e){
+      e.preventDefault();
+      let formData=new FormData(this);
 
-		$('.booking').click(function (event) {
-          event.preventDefault();
-          alert('ok');
-          let booking = localStorage.getItem('people'); // JSON String
-          $.post("{{route('booking.store')}}",{booking:booking},function (response) {
-            console.log(response);
-            // localStorage.clear();
-            // location.href="/";
-          });
+      let booking = localStorage.getItem('people');
+     
+
+      formData.append('data',booking);
+
+          $.ajax({
+            url:"{{route('booking.store')}}",
+            method:'post',
+            data: formData,
+    processData: false,
+    contentType: false,
+            success:function(res){
+              if(res){
+                localStorage.clear();
+                $('.success').html(res);
+
+              }
+            },
+            error:function(error){
+              console.log(error);
+            }
+          })
       });
 	})
 </script>
