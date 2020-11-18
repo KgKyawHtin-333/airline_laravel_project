@@ -15,7 +15,8 @@
                                     <div class="row">
                                         <div class="col-md-3">    
                                                 <span>From {{$d->route->fromCity->name}}- To{{$d->route->toCity->name}}</span><br>
-                                                <span>{{$d->flight->airline->name}}</span> <br><span>{{$d->flight->name}}</span><br>
+                                                <span>{{$d->flight->airline->name}}</span> <br>
+                                                 <span>{{$d->flight->airline->photo}}</span> <br><span>{{$d->flight->name}}</span><br>
                                          </div> 
                                          <div class="col-md-3">
                                                 <span>{{$d->time->name}}</span>
@@ -24,7 +25,7 @@
                                                 <span>{{$d->route->price}}</span>
                                          </div>
                                          <div class="col-md-3">
-                                                <input type="button" value="Choose" class="btn btn-outline-success checkout"  data-id="{{$d->id}}"> 
+                                            <input type="button" value="Choose" class="btn btn-outline-info checkout"  data-id="{{$d->id}}"> 
 
                                         </div>
 
@@ -34,7 +35,6 @@
                                 @endforeach
 				        </div>
                     </div>
-                </div>
                            
 
                              

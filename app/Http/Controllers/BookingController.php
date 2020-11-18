@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Booking;
 use App\Schedule;
+use App\Seat;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -39,35 +40,74 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // dd($request);
+       
+        $data=$request->data;
+        $data=json_decode($data);
+        // dd($data);
+        $fname=$request->firstname;
+        $sname=$request->secondname;
+        $email=$request->email;
+        $phone=$request->phone;
+        $dob=$request->birthdate;
+        $passport=$request->passport;
+        // echo  $fname;die();
+        
+        $totalpeople=$data->adults + $data->child;
+        $totalseatprice=$data->seat_price * $totalpeople;
+        $sid=$data->toschedule;
 
-        // validation
+        $sdata=Schedule::with(['route','route.fromCity','route.toCity','time','flight','flight.airline'])
+                ->findorFail($sid);
 
-        // data store
-        $mybooking = json_decode($request->booking);
-        $schedule = $mybooking->toschedule;
-        $orderdate = date('Y-m-d');
-        $totalamount = 0;
-        $totalpassenger = 0;
-        foreach ($mybooking as $row) {
-            $totalamount += $row->price;
-            $totalpassenger += $row->adult;
+        $routeprice=$sdata->route->price;
+        $routeprice=$routeprice * $totalpeople;
+
+        $total= $routeprice + $totalseatprice;
+
+        $seatid=$data->class_seats;
+
+        $flight_id=$sdata->flight->id;
+
+        $getSeat=Seat::where('class_flight_id',$seatid)
+                   -> where('flight_id',$flight_id) 
+                   ->doesntHave('bookings')
+                    ->get();
+
+                  
+// dd($getSeat);
+        // $arr=[];
+        // foreach ($getSeat as $key => $value) {
+        //    $id=
+        // }
+
+
+        $seatArr=[];
+        for ($i=0; $i <$totalpeople ; $i++) { 
+
+            $seatArr[$i]=$getSeat[$i]['id'];
         }
+        // dd($seatArr);die();
+
+
         $booking = new Booking;
        
-        $booking->schedule_id = $schedule;
-        $booking->total_price = $totalamount;
-        $booking->total_passenger = $totalpassenger;
-        $booking->user_id = Auth::id(); // current logined user_id
+        $booking->fname = $fname;
+        $booking->sname = $sname;
+        $booking->email = $email;
+        $booking->phone = $phone;
+        $booking->dob = $dob;
+        $booking->nrc_passport = $passport;
+        $booking->total_price = $total;
+        $booking->total_passenger = $totalpeople;
+        $booking->schedule_id = $sid;
         $booking->save();
         /*  [
                 {"id":1,"name":"item one","photo":"path","price":5000,"qty":3},
                 {"id":2,"name":"item one","photo":"path","price":6000,"qty":1}
             ]
         */
-        foreach ($mybooking as $row) { 
-            $booking->schedules()->attach($row->id);
+        foreach ($seatArr as $row) { 
+            $booking->seats()->attach($row);
         }
 
         return 'Successful Order';
