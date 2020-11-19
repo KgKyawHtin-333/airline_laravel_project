@@ -16,28 +16,21 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::middleware('role:admin')->group(function () {
 
 Route::resource('airline', 'AirlineController');
-
 Route::resource('route', 'RouteController');
-
 Route::resource('time', 'TimeController');
-
 Route::resource('class_flight', 'ClassFlightController');
-
 Route::resource('flight', 'FlightController');
-
 Route::resource('seat', 'SeatController');
-
 Route::resource('schedule', 'ScheduleController');
-
 Route::resource('booking', 'BookingController');
-
 Route::resource('booking_seat', 'BookingSeatController');
-
 Route::resource('city', 'CityController');
-
 Route::resource('user', 'UserController');
+
+});
 
 //Frontend template
 Route::get('/', 'FrontendController@home')->name('mainpage');
@@ -54,7 +47,7 @@ Route::post('flightSearch','FrontendController@flightSearch')->name('flightSearc
 Route::post('flightSearchRound','FrontendController@flightSearchRound')->name('flightSearchRound');
 
 
-Auth::routes();
+Auth::routes(['register'=>false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
