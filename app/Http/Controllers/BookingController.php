@@ -247,7 +247,7 @@ class BookingController extends Controller
                         }
 
 
-                return response()->json(['success'=>"Flight with $seat_name is full"]);
+                return response()->json(['success'=>"Flight with $seat_name is success"]);
                 }
 
 
