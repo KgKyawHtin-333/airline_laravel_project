@@ -61,8 +61,8 @@
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
 
-				          <li><a href="#">Home</a></li>
-				          <li><a href="#">About</a></li>					          					          		          
+				          <li><a href="{{route('mainpage')}}">Home</a></li>
+				        				          					          		          
 				          <li><a href="#contact">Contact</a></li>
 
   				          @auth

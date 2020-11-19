@@ -39,7 +39,7 @@
                 <td> {{$airline->phone_no}}   </td>
                 <td>  {{$airline->photo}}  </td>
                 <td> 
-                  <a href="" class="btn btn-success">Edit</a>
+                  <a href="{{route('airline.edit',$airline->id)}}" class="btn btn-success">Edit</a>
                   <a href="" class="btn btn-info">Show</a>
                   
                 </td>

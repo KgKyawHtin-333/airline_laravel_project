@@ -24,8 +24,8 @@
             
             <div class="form-group row">
 
-                <label for="c_name">Class Name</label>
-                <select id="categoryList" class="form-control" name="classflight" value="classflight">
+                <label for="c_name">Seat Name</label>
+                <select id="categoryList" class="form-control" name="name" value="name">
                 @foreach ($classflights as $classflight)
                     <option value="{{ $classflight->id }}">{{ $classflight->name }}</option>
                 @endforeach
@@ -35,27 +35,22 @@
 
             <div class="form-group row">
 
-                <label for="c_name">Flight Name</label>
+                <label for="c_name">Class Name</label>
                 <select id="categoryList" class="form-control" name="flight" value="flight">
                 @foreach ($flights as $flight)
                     <option value="{{ $flight->id }}">{{ $flight->name }}</option>
                 @endforeach
                
                </select>
-            </div>  
-       
-
-            
-           
+            </div>    
             <div class="form-group row">
-                <label for="c_name">AirLine Name</label>
+                <label for="c_name">Flight Name</label>
                 <select id="categoryList" class="form-control" name="airline" value="airline">
                 @foreach ($airlines as $airline)
                     <option value="{{ $airline->id }}">{{ $airline->name }}</option>
                 @endforeach
                
             </select>
-       
 
             </div>
         

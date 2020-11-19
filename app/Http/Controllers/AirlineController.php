@@ -78,7 +78,7 @@ class AirlineController extends Controller
      */
     public function edit(Airline $airline)
     {
-        //
+        return view('airline.edit',compact('airline'));
     }
 
     /**

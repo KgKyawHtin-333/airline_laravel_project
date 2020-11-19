@@ -22,9 +22,9 @@
             <thead>
               <tr>
                 <th>No</th>
+                <th>Name</th>
                 <th>Class Name</th>
                 <th>Flight Name</th>
-                <th>AirLine Name</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -33,9 +33,9 @@
              @foreach($seats as $seat)
               <tr>
                 <td> {{$i++}}  </td>
-                <td>{{$seat->classFlight->name}}</td>
-                <td> {{$seat->flight->name}}</td>
-                <td>{{$seat->airline->name}} </td>
+                <td>{{$seat->name}}</td>
+                <td> {{$seat->classFlight->name}}</td>
+                <td>{{$seat->flight->name}} </td>
                
                 <td> 
                   <a href="{{route('seat.edit',$seat->id)}}" class="btn btn-success">Edit</a>
