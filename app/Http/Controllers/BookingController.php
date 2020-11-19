@@ -86,20 +86,14 @@ class BookingController extends Controller
                        ->doesntHave('bookings')
                         ->get();
 
-                      
-    // dd($getSeat);
-            // $arr=[];
-            // foreach ($getSeat as $key => $value) {
-            //    $id=
-            // }
-
+   
 
             $seatArr=[];
             for ($i=0; $i <$totalpeople ; $i++) { 
 
                 $seatArr[$i]=$getSeat[$i]['id'];
             }
-            // dd($seatArr);die();
+           
 
 
             $booking = new Booking;
@@ -115,17 +109,12 @@ class BookingController extends Controller
             $booking->schedule_id = $sid;
             $booking->codeno=$codeno;
             $booking->save();
-            /*  [
-                    {"id":1,"name":"item one","photo":"path","price":5000,"qty":3},
-                    {"id":2,"name":"item one","photo":"path","price":6000,"qty":1}
-                ]
-            */
+            
             foreach ($seatArr as $row) { 
                 $booking->seats()->attach($row);
             }
         }
        
-
         if($fid!=0){
              $fdata=Schedule::with(['route','route.fromCity','route.toCity','time','flight','flight.airline'])
                 ->findorFail($fid);
@@ -144,20 +133,12 @@ class BookingController extends Controller
                        ->doesntHave('bookings')
                         ->get();
 
-                      
-    // dd($getSeat);
-            // $arr=[];
-            // foreach ($getSeat as $key => $value) {
-            //    $id=
-            // }
-
-
             $seatArr=[];
             for ($i=0; $i <$totalpeople ; $i++) { 
 
                 $seatArr[$i]=$getSeat[$i]['id'];
             }
-            // dd($seatArr);die();
+            
              $booking = new Booking;
        
                 $booking->fname = $fname;
@@ -171,11 +152,7 @@ class BookingController extends Controller
                 $booking->schedule_id = $fid;
                 $booking->codeno = $codeno;
                 $booking->save();
-                /*  [
-                        {"id":1,"name":"item one","photo":"path","price":5000,"qty":3},
-                        {"id":2,"name":"item one","photo":"path","price":6000,"qty":1}
-                    ]
-                */
+               
                 foreach ($seatArr as $row) { 
                     $booking->seats()->attach($row);
                 }

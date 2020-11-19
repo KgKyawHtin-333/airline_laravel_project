@@ -46,14 +46,7 @@
 
             </div>
            
-            <div class="form-group row">
-                <label for="c_name">AirLine Name</label>
-                <select class="form-control" name="airline" value="airline">
-                @foreach ($airlines as $airline)
-                    <option value="{{ $airline->id }}" {{ $seat->airline_id == $airline->id ? 'selected' : ''  }}>{{ $airline->name }}</option>
-                @endforeach
-               
-            </select>
+          
        
 
             </div>

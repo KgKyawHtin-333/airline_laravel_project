@@ -45,16 +45,7 @@
             </div>  
        
 
-            
-           
-            <div class="form-group row">
-                <label for="c_name">AirLine Name</label>
-                <select id="categoryList" class="form-control" name="airline" value="airline">
-                @foreach ($airlines as $airline)
-                    <option value="{{ $airline->id }}">{{ $airline->name }}</option>
-                @endforeach
-               
-            </select>
+         
        
 
             </div>
