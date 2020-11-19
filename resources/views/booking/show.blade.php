@@ -16,6 +16,8 @@
         <div class="tile">
           
           <h2>Booking Detail</h2>
+          
+         
 
           <section>
            <div class="container py-3">
@@ -63,10 +65,13 @@
            </div>
           
 
+
           @if($booking->status == 0)
           <form method="post" action="{{route('booking.confirm',$booking->id)}}">
             @csrf
+
             <button class="btn btn-info" type="submit" style="margin-left: 100px">Confirm</button>
+
           </form>
 
           @elseif($booking->status == 1)
