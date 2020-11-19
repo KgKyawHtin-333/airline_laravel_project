@@ -8,9 +8,9 @@
   <!-- <h1 id="airlinename">  I am user preview booking</h1> -->
 
     <div class="container py-5" >
+
     <div class="row my-5">
       <div class="col-md-6">
-    
         <h2 class="text-success success my-3" ></h2>
 
         <h2 class="text-danger  danger my-3"></h2>
@@ -60,12 +60,8 @@
                 <p id="paragraph_four" style="color: red;"></p>
               </div>
           </div>
-
-
         </div>
 
-
-        
            <input type="submit" class="btn btn-sm btn-success btn-book float-right" style="padding-left: 20px;padding-right: 20px;font-size: 20px;background-color:#222223" value="Book Now!" >
             <input type="button" class="d-none  btn btn-sm btn-danger float-right btn-again" style="padding-left: 20px;padding-right: 20px;font-size:20px" value="Try Again" >
 

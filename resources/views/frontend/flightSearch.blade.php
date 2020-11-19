@@ -9,23 +9,24 @@
 					<div class="row fullscreen align-items-center justify-content-between">
                        
 						<div class="col-md-12">
+                            <h2 class="text-warning">One Way</h2>
                              @foreach($data as $d)
                                 <div class="card my-3">
                                    <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-3">    
+                                        <div class="col-md-4">    
                                                 <span>From {{$d->route->fromCity->name}}- To{{$d->route->toCity->name}}</span><br>
                                                 <span>{{$d->flight->airline->name}}</span> <br>
                                                  <span>{{$d->flight->airline->photo}}</span> <br><span>{{$d->flight->name}}</span><br>
                                          </div> 
                                          <div class="col-md-3">
-                                                <span>{{$d->time->name}}</span>
+                                                <span>{{$d->time->name}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{$d->date}}</span>
                                          </div>
                                          <div class="col-md-3">
-                                                <span>{{$d->route->price}}</span>
+                                                <span>{{$d->route->price}}MMK</span>
                                          </div>
-                                         <div class="col-md-3">
-                                            <input type="button" value="Choose" class="btn btn-outline-info checkout"  data-id="{{$d->id}}"> 
+                                         <div class="col-md-2">
+                                            <input type="button" value="Choose" class="btn btn-outline-warning checkout"  data-id="{{$d->id}}"> 
 
                                         </div>
 

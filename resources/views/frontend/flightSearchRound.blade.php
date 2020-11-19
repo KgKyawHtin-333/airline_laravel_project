@@ -4,14 +4,14 @@
 
 <section class="banner-area relative">
 				<div class="overlay overlay-bg"></div>				
-				<div class="container">
+				<div class="container py-5">
 
-					<div class="row fullscreen align-items-center justify-content-between">
-                       
+					<div class="row fullscreen align-items-center justify-content-between py-5">
+                      
 						<div class="col-md-12">
+                             <h3 class="text-warning">Departure</h3>
                              @foreach($data as $d)
-                                <h2>Departure</h2>
-                                <div class="card my-3">
+                                <div class="card">
                                    <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-3">    
@@ -19,14 +19,13 @@
                                                 <span>{{$d->flight->airline->name}}</span> <br>
                                                  <span>{{$d->flight->airline->photo}}</span> <br><span>{{$d->flight->name}}</span><br>
                                          </div> 
-                                         <div class="col-md-3">
-                                                <span>{{$d->time->name}}</span>
+                                         <div class="col-md-3"><span>{{$d->time->name}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{$d->date}}</span>
                                          </div>
                                          <div class="col-md-3">
-                                                <span>{{$d->route->price}}</span>
+                                                <span>{{$d->route->price}}MMK</span>
                                          </div>
                                          <div class="col-md-3">
-                                            <input type="button" value="Choose" class="btn btn-outline-info checkout"  data-id="{{$d->id}}"> 
+                                            <input type="button" value="Choose" class="btn btn-outline-warning checkout"  data-id="{{$d->id}}"> 
 
                                         </div>
 
@@ -35,11 +34,12 @@
                                 </div>
                                 @endforeach
 				        </div>
+                    
                         
                             <div class="col-md-12">
+                                 <h3 class="text-warning">Return</h3>
                                  @foreach($dataReturn as $return)
-                                    <h2>Return</h2>
-                                    <div class="card my-3">
+                                    <div class="card my-2">
                                        <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-3">    
@@ -48,13 +48,13 @@
                                                      <span>{{$return->flight->airline->photo}}</span> <br><span>{{$return->flight->name}}</span><br>
                                              </div> 
                                              <div class="col-md-3">
-                                                    <span>{{$return->time->name}}</span>
+                                                    <span>{{$return->time->name}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{$return->date}}</span>
                                              </div>
                                              <div class="col-md-3">
-                                                    <span>{{$return->route->price}}</span>
+                                                    <span>{{$return->route->price}}MMK</span>
                                              </div>
                                              <div class="col-md-3">
-                                                <input type="button" value="Choose" class="btn btn-outline-info checkout"  data-id="{{$return->id}}"> 
+                                                <input type="button" value="Choose" class="btn btn-outline-warning checkout"  data-id="{{$return->id}}"> 
 
                                             </div>
 

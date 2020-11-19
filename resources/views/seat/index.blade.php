@@ -35,9 +35,7 @@
                 <td> {{$i++}}  </td>
                 <td> {{$seat->name}} </td>
                 <td>{{$seat->classFlight->name}}</td>
-                
                 <td> {{$seat->flight->name}}</td>
-                
                
                 <td> 
                   <a href="{{route('seat.edit',$seat->id)}}" class="btn btn-success">Edit</a>
