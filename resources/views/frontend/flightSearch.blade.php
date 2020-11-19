@@ -103,6 +103,8 @@
 
 @endsection
 @section('script')
+
+
 <script>
     $('document').ready(function(){
         $('.checkout').click(function() {  

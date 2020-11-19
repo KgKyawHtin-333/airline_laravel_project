@@ -3,9 +3,9 @@
 @section('content')
 
         <!-- Subcategory Title -->
-	<div class="jumbotron jumbotron-fluid subtitle">
+	<div class="jumbotron jumbotron-fluid subtitle" style="background-color: #222223">
   		<div class="container">
-    		<h1 class="text-center text-black"> Create Account </h1>
+    		<h1 class="text-center text-black">  </h1>
   		</div>
 	</div>
 	
