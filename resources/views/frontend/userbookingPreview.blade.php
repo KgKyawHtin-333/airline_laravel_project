@@ -283,7 +283,7 @@
     let fid=varArr.fromschedule;
      console.log(fid); //departure way
 
-    $.get(/getScheduleUser/${sid},function(res){
+    $.get(`/getScheduleUser/${sid}`,function(res){
       console.log(res);
       //$('#passengerName').html(res)
       $('.airlinename').html(res.flight.airline.name);
@@ -313,7 +313,7 @@
       $('.rclassname').html(varArr.seat_name);
         $('.radult').html(varArr.adults);
         $('.rchild').html(varArr.child);
-      $.get(/getScheduleUser/${fid},function(res){
+      $.get(`/getScheduleUser/${fid}`,function(res){
       console.log(res);
         $('.rairlinename').html(res.flight.airline.name);
         $('.rfromCity').html(res.route.from_city.name);

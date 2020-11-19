@@ -22,6 +22,19 @@
         <form action="{{route('seat.update',$seat->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+            
+            <div class="form-group row">
+                <label for="name">Name</label>
+                <input type="text" class="form-control @error('name') is-invalid @enderror"  name="name" value="{{$seat->name}}"> 
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{$message}}</strong>
+                    </span>
+
+                @enderror 
+            </div>
+
+
             <div class="form-group row">
                 <label for="c_name">Class Name</label>
                 <select  class="form-control" name="classflight" value="classflight">

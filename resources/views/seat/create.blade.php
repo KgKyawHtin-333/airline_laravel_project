@@ -21,6 +21,18 @@
         <h2>Seat Form</h2>
         <form action="{{route('seat.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
+
+
+           <div class="form-group row">
+                <label for="name">Name</label>
+                <input type="text" class="form-control @error('name') is-invalid @enderror"  name="name"> 
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{$message}}</strong>
+                    </span>
+
+                @enderror 
+            </div>
             
             <div class="form-group row">
 

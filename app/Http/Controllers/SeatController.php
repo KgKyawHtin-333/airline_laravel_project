@@ -49,15 +49,17 @@ class SeatController extends Controller
          // dd($request);
 
          $request->validate([
+            "name"=>"required",
             "classflight"=>"required",
             "flight"=>"required",
-            "airline"=>"required"
+            
         ]);
 
 
-          $seat= Seat::create(['class_flight_id' => $request->classflight,
-                                 'flight_id'=>$request->flight,
-                                  'airline_id' => $request->airline
+          $seat= Seat::create(['name' => $request->name,
+                                'class_flight_id' => $request->classflight,
+                                'flight_id'=>$request->flight,
+                                
           ]);
 
 
@@ -105,13 +107,13 @@ class SeatController extends Controller
           $request->validate([
             "classflight"=>"required",
             "flight"=>"required",
-            "airline"=>"required"
+            "name"=>"required"
           ]);
 
     
        $seat->class_flight_id=$request->classflight;
        $seat->flight_id=$request->flight;
-       $seat->airline_id=$request->airline;
+       $seat->name=$request->name;
        $seat->save();
 
         return redirect()->route('seat.index');
