@@ -6,6 +6,7 @@ use App\Seat;
 use App\Flight;
 use App\ClassFlight;
 use Illuminate\Http\Request;
+use App\Airline;
 
 class SeatController extends Controller
 {

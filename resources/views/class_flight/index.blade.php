@@ -26,7 +26,7 @@
                 <th>Price</th>
                 <th>Description</th>
                
-                <th>Actions</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -38,11 +38,7 @@
                 <td> {{$class->price}}   </td>
                 <td> {{$class->description}}   </td>
                 
-                <td> 
-                  <a href="" class="btn btn-success">Edit</a>
-                  <a href="" class="btn btn-info">Show</a>
-                  
-                </td>
+                
               </tr>
             @endforeach
                 

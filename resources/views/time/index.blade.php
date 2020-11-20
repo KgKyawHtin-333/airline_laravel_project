@@ -23,7 +23,7 @@
               <tr>
                 <th>No</th>
                 <th>Name</th>
-                <th>Actions</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -31,11 +31,7 @@
               <tr>
                 <td> {{$time->id}}  </td>
                 <td> {{$time->name}} </td>
-                <td> 
-                  <a href="" class="btn btn-success">Edit</a>
-                  <a href="" class="btn btn-info">Show</a>
-                  
-                </td>
+              
               </tr>
               @endforeach
             

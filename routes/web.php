@@ -25,12 +25,16 @@ Route::resource('class_flight', 'ClassFlightController');
 Route::resource('flight', 'FlightController');
 Route::resource('seat', 'SeatController');
 Route::resource('schedule', 'ScheduleController');
-Route::resource('booking', 'BookingController');
-Route::resource('booking_seat', 'BookingSeatController');
+
+
 Route::resource('city', 'CityController');
-Route::resource('user', 'UserController');
 
 });
+
+Route::resource('user', 'UserController');
+Route::resource('booking', 'BookingController');
+Route::resource('booking_seat', 'BookingSeatController');
+
 
 //Frontend template
 Route::get('/', 'FrontendController@home')->name('mainpage');

@@ -73,7 +73,7 @@
                   @foreach($pending_orders as $row)
                   <tr>
                     <td>{{$i++}}</td>
-                    <td>{{($row->total_price}}</td>
+                   
                     <td>{{$row->codeno}}</td>
                     <td>{{$row->total_price}}</td>
 
@@ -102,15 +102,16 @@
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <table class="table mt-3 table-bordered dataTable">
-                 <thead>
+                  <thead>
                   <tr>
                     <th>No</th>
+                    <th>Code no</th>
                     <th>Total Price</th>
                     <th>Total Passenger</th>
                     <th>Schedule Id</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    
+                   
                   </tr>
                 </thead>
                 <tbody>
@@ -121,14 +122,18 @@
                   @foreach($confirmed_orders as $row)
                   <tr>
                     <td>{{$i++}}</td>
+                   
+                    <td>{{$row->codeno}}</td>
                     <td>{{$row->total_price}}</td>
+
                     <td>
                       {{$row->total_passenger}}
                     </td>
+                    
                     <td>{{$row->schedule_id}}</td>
                     <td>{{$row->email}}</td>
                     <td> {{$row->phone}} </td>
-                   
+                    
                   </tr>
                   @endforeach
                     </tr>

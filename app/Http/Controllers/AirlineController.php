@@ -90,7 +90,26 @@ class AirlineController extends Controller
      */
     public function update(Request $request, Airline $airline)
     {
-        //
+         $request->validate([
+            "name"=>"required|min:3",
+            "address"=>"required",
+            "phoneno"=>"required",
+            "photo"=>"required|mimes:jpeg,bmp,png,jpg"
+        ]);
+
+        if($request->file()){
+            $fileName=time().'_'.$request->photo->getClientOriginalName();
+            $filePath=$request->file('photo')->storeAs('airline',$fileName,'public');
+            $path='/storage/'.$filePath;
+        }
+        $airline=new Airline;
+        $airline->name=$request->name;
+        $airline->address=$request->address;
+        $airline->phone_no=$request->phoneno;
+        $airline->photo=$path;
+        $airline->save();
+
+        return redirect()->route('airline.index');
     }
 
     /**

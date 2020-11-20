@@ -40,7 +40,7 @@
                 
                 <td> 
                   <a href="{{route('route.edit',$route->id)}}" class="btn btn-success">Edit</a>
-                  <a href="" class="btn btn-info">Show</a>
+                
                   <form action="{{route('route.destroy',$route->id)}}" method="POST" class="d-inline-block" onsubmit="
                         return confirm('Are you sure want to delete?')">
                         @csrf 

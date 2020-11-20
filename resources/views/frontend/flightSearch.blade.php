@@ -17,7 +17,7 @@
                                         <div class="col-md-4 ">    
                                                <div class="form-group"><p>From {{$d->route->fromCity->name}}<span><i class="fas fa-long-arrow-alt-right "></i></span>To {{$d->route->toCity->name}}</p></div>
                                                 <span>{{$d->flight->airline->name}}</span> <br>
-                                                 <span><img src="{{$d->flight->airline->photo}}" width="60px";height="60px"></span> <br><span>{{$d->flight->name}}</span><br>
+                                                 <!-- <span><img src="{{$d->flight->airline->photo}}" width="60px";height="60px"></span> --> <br><span>{{$d->flight->name}}</span><br>
                                          </div> 
                                          <div class="col-md-3">
                                                 <span>{{$d->time->name}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{$d->date}}</span>
