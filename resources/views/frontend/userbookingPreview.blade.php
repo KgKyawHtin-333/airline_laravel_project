@@ -346,8 +346,8 @@
             url:"{{route('booking.store')}}",
             method:'post',
             data: formData,
-    processData: false,
-    contentType: false,
+             processData: false,
+              contentType: false,
             success:function(res){
               if(res.success){
                 // localStorage.clear();
@@ -355,6 +355,7 @@
 
               }else{
                 // localStorage.clear();
+                $('.success').hide();
                 $('.btn-book').addClass('d-none');
                 $('.btn-again').removeClass('d-none');
                 $('.danger').html(res.error);

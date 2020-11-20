@@ -24,7 +24,7 @@
 
 
            <div class="form-group row">
-                <label for="name">Name</label>
+                <label for="name">Seat Name</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror"  name="name"> 
                 @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -36,8 +36,8 @@
             
             <div class="form-group row">
 
-                <label for="c_name">Seat Name</label>
-                <select id="categoryList" class="form-control" name="name" value="name">
+                <label for="c_name">Class Name</label>
+                <select id="categoryList" class="form-control" name="classflight">
                 @foreach ($classflights as $classflight)
                     <option value="{{ $classflight->id }}">{{ $classflight->name }}</option>
                 @endforeach
@@ -55,16 +55,7 @@
                
                </select>
             </div>    
-            <div class="form-group row">
-                <label for="c_name">Flight Name</label>
-                <select id="categoryList" class="form-control" name="airline" value="airline">
-                @foreach ($airlines as $airline)
-                    <option value="{{ $airline->id }}">{{ $airline->name }}</option>
-                @endforeach
-               
-            </select>
-
-            </div>  
+            
 
             </div>
         

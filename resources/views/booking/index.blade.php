@@ -56,6 +56,7 @@
                 <thead>
                   <tr>
                     <th>No</th>
+                    <th>Code no</th>
                     <th>Total Price</th>
                     <th>Total Passenger</th>
                     <th>Schedule Id</th>
@@ -72,6 +73,7 @@
                   @foreach($pending_orders as $row)
                   <tr>
                     <td>{{$i++}}</td>
+                    <td>{{$row->codeno}}</td>
                     <td>{{$row->total_price}}</td>
                     <td>
                       {{$row->total_passenger}}
@@ -140,4 +142,12 @@
       </div>
     </div>
   </main>
+@endsection
+@section('script')
+<!-- Data table plugin-->
+<script type="text/javascript" src="{{asset('backend_asset/js/plugins/jquery.dataTables.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('backend_asset/js/plugins/dataTables.bootstrap.min.js')}}"></script>
+<script type="text/javascript">
+$('.dataTable').DataTable();
+</script>
 @endsection

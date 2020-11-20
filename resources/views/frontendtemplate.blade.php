@@ -18,6 +18,8 @@
 		<title>Fly with us</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
+		<!-- FONT AWASOME LINK -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous"/>
 			<!--
 			CSS
 			============================================= -->
@@ -177,8 +179,8 @@
 
 								<h6 class="mb-20">have any question?</h6>
 								<ul class="footer-nav">
-                            <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> 39,Pwal Sar Street,Kyimyindaing,Yangon</a></li>
-                            <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +95 9421099378</a></li>
+                            <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>Thida street,Tamwe,Yangon</a></li>
+                            <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i> +95 9773245631</a></li>
                             <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> flight with us@gmail.com</a></li>
                         </ul>
 
