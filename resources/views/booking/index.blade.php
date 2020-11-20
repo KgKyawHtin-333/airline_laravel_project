@@ -72,7 +72,7 @@
                   @foreach($pending_orders as $row)
                   <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$row->total_price}}</td>
+                    <td>{{($row->total_price}}</td>
                     <td>
                       {{$row->total_passenger}}
                     </td>

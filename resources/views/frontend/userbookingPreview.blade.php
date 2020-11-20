@@ -131,6 +131,10 @@
             <div>
               <h4> Total price - <span class="rtotal"></span></h4>
             </div>
+            <hr>
+            <div>
+              <h4> Round Trip Total Price = <span class="totalprice"></span></h4>
+            </div>
           </div>
         </div>
         <!--  <button type="submit" class="btn btn-success booking float-right my-3" > Booking </button> -->
@@ -327,9 +331,14 @@
              console.log(frouteprice);
              var ftotal= frouteprice+ftotalseatprice;
         $('.rtotal').html(ftotal);
+             var drtotalprice = ftotal+ftotal;
+            console.log(drtotalprice);
+            $('.totalprice').html(drtotalprice);
         
       })
     }
+
+   
     
 
 // aco with form submitting
