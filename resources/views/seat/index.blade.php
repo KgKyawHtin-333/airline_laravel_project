@@ -58,3 +58,11 @@
     </div>
   </main>
 @endsection
+@section('script')
+<!-- Data table plugin-->
+<script type="text/javascript" src="{{asset('backend_asset/js/plugins/jquery.dataTables.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('backend_asset/js/plugins/dataTables.bootstrap.min.js')}}"></script>
+<script type="text/javascript">
+$('.dataTable').DataTable();
+</script>
+@endsection

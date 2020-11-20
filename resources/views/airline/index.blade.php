@@ -37,7 +37,7 @@
                 <td>{{$airline->name}}</td>
                 <td> {{$airline->address}}   </td>
                 <td> {{$airline->phone_no}}   </td>
-                <td>  {{$airline->photo}}  </td>
+                <td><img src="{{$airline->photo}}" width="70px"; height="70px"></td>
                 <td> 
                   <a href="{{route('airline.edit',$airline->id)}}" class="btn btn-success">Edit</a>
                   <a href="" class="btn btn-info">Show</a>
@@ -52,4 +52,13 @@
       </div>
     </div>
   </main>
+@endsection
+
+@section('script')
+<!-- Data table plugin-->
+<script type="text/javascript" src="{{asset('backend_asset/js/plugins/jquery.dataTables.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('backend_asset/js/plugins/dataTables.bootstrap.min.js')}}"></script>
+<script type="text/javascript">
+$('.dataTable').DataTable();
+</script>
 @endsection

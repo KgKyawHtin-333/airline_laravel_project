@@ -15,9 +15,9 @@
                                    <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-3">    
-                                                <span>From {{$d->route->fromCity->name}}- To{{$d->route->toCity->name}}</span><br>
+                                                <p>From {{$d->route->fromCity->name}}<span><i class="fas fa-long-arrow-alt-right "></i></span>To {{$d->route->toCity->name}}</p>
                                                 <span>{{$d->flight->airline->name}}</span> <br>
-                                                 <span>{{$d->flight->airline->photo}}</span> <br><span>{{$d->flight->name}}</span><br>
+                                                 <span><img src="{{$d->flight->airline->photo}}" width="60px";height="60px"></span> <br><span>{{$d->flight->name}}</span><br>
                                          </div> 
                                          <div class="col-md-3"><span>{{$d->time->name}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{$d->date}}</span>
                                          </div>
@@ -43,9 +43,9 @@
                                        <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-3">    
-                                                    <span>From {{$return->route->FromCity->name}}- To{{$return->route->toCity->name}}</span><br>
+                                                    <span>From {{$return->route->FromCity->name}} <i class="fas fa-long-arrow-alt-right "></i> To {{$return->route->toCity->name}}</span><br>
                                                     <span>{{$return->flight->airline->name}}</span> <br>
-                                                     <span>{{$return->flight->airline->photo}}</span> <br><span>{{$return->flight->name}}</span><br>
+                                                     <span><img src="{{$return->flight->airline->photo}}" width="60px";height="60px"></span> <br><span>{{$return->flight->name}}</span><br>
                                              </div> 
                                              <div class="col-md-3">
                                                     <span>{{$return->time->name}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{$return->date}}</span>

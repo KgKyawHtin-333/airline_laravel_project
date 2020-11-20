@@ -194,7 +194,7 @@
 			// 		passenger_array=JSON.parse(passenger_list);
 			// 	}
 			// 	passenger_array.push(passenger);
-				let passenger_string=JSON.stringify(passenger);
+			   let passenger_string=JSON.stringify(passenger);
  		       localStorage.setItem("people",passenger_string);
 
 			
